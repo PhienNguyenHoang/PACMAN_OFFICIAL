@@ -2,8 +2,12 @@ package game;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+
+
 
 import Display.Display;
+import Graphics.ImageLoader;
 
 public class Game implements Runnable {
 	private Display display;
@@ -11,6 +15,7 @@ public class Game implements Runnable {
 	public String title;
 	private BufferStrategy bs;
 	private Graphics g;
+	private BufferedImage image;
 	
 	private boolean running = false;
 	private Thread thread;
@@ -23,6 +28,7 @@ public class Game implements Runnable {
 	}
 	private void init() {
 		display = new Display(title, width, height);
+		image = ImageLoader.loadImage("/Images/pacman.png");
 	}
 	public void render() {
 		bs= display.getCanvas().getBufferStrategy();
@@ -32,7 +38,9 @@ public class Game implements Runnable {
 		}
 		g=bs.getDrawGraphics();
 		
-		g.fillRect(0, 0, width, height);
+		g.clearRect(0, 0, width, height);
+		
+		g.drawImage(image,50,50,null);
 		
 		
 		bs.show();
