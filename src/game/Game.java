@@ -3,8 +3,7 @@ package game;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-
-
+import entity.Player;
 
 import Display.Display;
 import Graphics.ImageLoader;
@@ -19,11 +18,13 @@ public class Game implements Runnable {
 	
 	private boolean running = false;
 	private Thread thread;
+	private Player player;
 	
 	public Game(String title, int width, int height) {
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		player = new Player(50, 50);
 		
 	}
 	private void init() {
@@ -40,9 +41,7 @@ public class Game implements Runnable {
 		
 		g.clearRect(0, 0, width, height);
 		
-		g.drawImage(image,50,50,null);
-		
-		
+		player.render(g);
 		bs.show();
 		g.dispose();
 		

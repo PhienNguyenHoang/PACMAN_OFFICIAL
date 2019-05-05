@@ -1,6 +1,6 @@
 package Display;
 
-import display.Display;
+import game.Game;
 
 public class Laucher {
 	public static void main(String[] args) {
