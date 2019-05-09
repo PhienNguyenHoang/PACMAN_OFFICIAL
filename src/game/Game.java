@@ -6,6 +6,8 @@ import java.awt.image.BufferedImage;
 import entity.Player;
 
 import Display.Display;
+import Graphics.Assets;
+import Graphics.CropImage;
 import Graphics.ImageLoader;
 
 public class Game implements Runnable {
@@ -15,6 +17,7 @@ public class Game implements Runnable {
 	private BufferStrategy bs;
 	private Graphics g;
 	private BufferedImage image;
+	private CropImage x;
 	
 	private boolean running = false;
 	private Thread thread;
@@ -29,7 +32,8 @@ public class Game implements Runnable {
 	}
 	private void init() {
 		display = new Display(title, width, height);
-		image = ImageLoader.loadImage("/Images/pacman.png");
+		Assets.init();
+		
 	}
 	public void render() {
 		bs= display.getCanvas().getBufferStrategy();
@@ -41,7 +45,8 @@ public class Game implements Runnable {
 		
 		g.clearRect(0, 0, width, height);
 		
-		player.render(g);
+		g.drawImage(Assets.blinky,10,10,null);
+		
 		bs.show();
 		g.dispose();
 		
