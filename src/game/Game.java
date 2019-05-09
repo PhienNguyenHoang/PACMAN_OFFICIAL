@@ -7,6 +7,8 @@ import entity.Player;
 
 import Display.Display;
 import Graphics.ImageLoader;
+import input.KeyManager;
+
 
 public class Game implements Runnable {
 	private Display display;
@@ -19,17 +21,20 @@ public class Game implements Runnable {
 	private boolean running = false;
 	private Thread thread;
 	private Player player;
+	private KeyManager keyManager;
 	
 	public Game(String title, int width, int height) {
 		this.width = width;
 		this.height = height;
 		this.title = title;
 		player = new Player(50, 50);
+		keyManager = new KeyManager();
 		
 	}
 	private void init() {
 		display = new Display(title, width, height);
 		image = ImageLoader.loadImage("/Images/pacman.png");
+		display.getFrame().addKeyListener(keyManager);
 	}
 	public void render() {
 		bs= display.getCanvas().getBufferStrategy();
@@ -53,6 +58,9 @@ public class Game implements Runnable {
 			render();
 		}
 		
+	}
+	public KeyManager getKeyManager() {
+		return keyManager;
 	}
 	
 	public synchronized void start() {
