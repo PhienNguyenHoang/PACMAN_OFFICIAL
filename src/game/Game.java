@@ -9,6 +9,8 @@ import Display.Display;
 import Graphics.Assets;
 import Graphics.CropImage;
 import Graphics.ImageLoader;
+import State.GameState;
+import State.State;
 
 public class Game implements Runnable {
 	private Display display;
@@ -23,6 +25,9 @@ public class Game implements Runnable {
 	private Thread thread;
 	private Player player;
 	
+	//State
+	private State gameState;
+	
 	public Game(String title, int width, int height) {
 		this.width = width;
 		this.height = height;
@@ -34,6 +39,15 @@ public class Game implements Runnable {
 		display = new Display(title, width, height);
 		Assets.init();
 		
+		gameState = new GameState();
+		State.setState(gameState);
+		
+	}
+	
+	private void tick() {
+		if(State.getState()!=null) {
+			State.getState().tick();
+		}
 	}
 	public void render() {
 		bs= display.getCanvas().getBufferStrategy();
@@ -45,7 +59,11 @@ public class Game implements Runnable {
 		
 		g.clearRect(0, 0, width, height);
 		
-		g.drawImage(Assets.blinky,10,10,null);
+		if(State.getState()!=null) {
+			State.getState().render(g);
+		}
+		
+		g.drawImage(Assets.pacman,10,10,null);
 		
 		bs.show();
 		g.dispose();
