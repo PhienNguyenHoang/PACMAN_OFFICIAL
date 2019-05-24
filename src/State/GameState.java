@@ -17,7 +17,7 @@ public class GameState extends State{
 	
 	@Override
 	public void tick() {
-		// TODO Auto-generated method stub
+		player.tick();
 		
 	}
 
