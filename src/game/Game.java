@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import entity.Player;
-
+import input.KeyManager;
 import Display.Display;
 import Graphics.Assets;
 import Graphics.CropImage;
@@ -27,16 +27,18 @@ public class Game implements Runnable {
 	
 	//State
 	private State gameState;
+	private KeyManager keyManager;
 	
 	public Game(String title, int width, int height) {
 		this.width = width;
 		this.height = height;
-		this.title = title;
-		player = new Player(50, 50);
+		this.title = title; 
+		keyManager = new KeyManager();
 		
 	}
 	private void init() {
 		display = new Display(title, width, height);
+		display.getFrame().addKeyListener(keyManager);
 		Assets.init();
 		
 		gameState = new GameState(this);
@@ -45,6 +47,7 @@ public class Game implements Runnable {
 	}
 	
 	private void tick() {
+		keyManager.tick();
 		if(State.getState()!=null) {
 			State.getState().tick();
 		}
@@ -76,6 +79,11 @@ public class Game implements Runnable {
 			render();
 		}
 		
+	}
+	
+	
+	public KeyManager getKeyManager() {
+		return keyManager;
 	}
 	
 	public synchronized void start() {
