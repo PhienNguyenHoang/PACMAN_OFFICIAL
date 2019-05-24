@@ -39,7 +39,7 @@ public class Game implements Runnable {
 		display = new Display(title, width, height);
 		Assets.init();
 		
-		gameState = new GameState();
+		gameState = new GameState(this);
 		State.setState(gameState);
 		
 	}
