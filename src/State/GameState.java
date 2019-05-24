@@ -2,6 +2,7 @@ package State;
 
 import java.awt.Graphics;
 
+import World.World;
 import entity.Player;
 import game.Game;
 import tiles.Tile;
@@ -9,10 +10,12 @@ import tiles.Tile;
 public class GameState extends State{
 
 	private Player player;
+	private World world;
 	
 	public GameState(Game game) {
 		super(game);
 		player = new Player(game,100,100);
+		world=new World("");
 	}
 	
 	@Override
@@ -23,7 +26,10 @@ public class GameState extends State{
 
 	@Override
 	public void render(Graphics g) {
+		
+		
 		// TODO Auto-generated method stub
+		world.render(g);
 		player.render(g);
 	}
 
