@@ -76,7 +76,9 @@ public class Game implements Runnable {
 	public void run() {
 		init();
 		while(running) {
+			tick();
 			render();
+
 		}
 		
 	}
