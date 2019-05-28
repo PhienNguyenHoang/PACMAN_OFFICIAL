@@ -7,7 +7,7 @@ public class Tile {
 	public static Tile[] tiles= new Tile[256];
 	public static Tile blackTile= new blackTile(0);
 	public static Tile wall= new wall(1);
-	public static final int TILEWIDTH=75,TILEHEIGHT=75;
+	public static final int TILEWIDTH=30,TILEHEIGHT=30;
 	
 	
 	protected BufferedImage texture;
