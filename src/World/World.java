@@ -4,11 +4,14 @@ package World;
 
 import java.awt.Graphics;
 
+
 import tiles.Tile;
+
 
 public class World {
 	private int width,height;
 	private int [][] tiles;
+	private int spawnX, spawnY;
 	
 	public World(String path) {
 		loadWorld(path);
@@ -33,7 +36,7 @@ public class World {
 		return t;
 	}
 	private void loadWorld(String path) {
-		width=10;
+		/*width=10;
 		height=10;
 		tiles=new int [width][height];
 		
@@ -41,8 +44,25 @@ public class World {
 			for(int y=0;y<height;y++) {
 				tiles[x][y]=0;
 				
+			}*/
+
+		String files =Utils. loadFileAsString(path);
+		String[] tokens = files.split("\\s+");
+		width = Utils. parseInt(tokens[0]);
+		height = Utils.parseInt(tokens[1]);
+		spawnX = Utils.parseInt(tokens[2]);
+		spawnY = Utils.parseInt(tokens[3]);
+
+		tiles= new int[width][height];
+		for ( int y=0; y<height; y++){
+			for ( int x=0; x< width; x++){
+				tiles [x][y]= Utils.parseInt(tokens[(x+y*width)+4]);
 			}
+
+
 		}
+
+
 		
 	}
 	
