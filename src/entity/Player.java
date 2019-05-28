@@ -24,10 +24,10 @@ public class Player extends Creature {
 		
 		pac_left= new Animation(300,Assets.pac_left);
 		pac_right= new Animation(300,Assets.pac_right);
-		bounds.x = 16;
-		bounds.y = 32;
-		bounds.width = 32;
-		bounds.height = 32;
+		bounds.x = 28;
+		bounds.y = 28;
+		bounds.width = 28;
+		bounds.height = 28;
 	}
 
 	@Override
@@ -60,7 +60,6 @@ public class Player extends Creature {
 	@Override
 	public void render(Graphics g) {
 		g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);
-
 	}
 	private BufferedImage getCurrentAnimationFrame() {
 		if(xMove<0) {

@@ -10,5 +10,8 @@ public class blackTile extends Tile {
 		super(Assets.background,id);
 		// TODO Auto-generated constructor stub
 	}
-	
+	@Override
+	public boolean isSolid() {
+		return true;
+	}
 }
