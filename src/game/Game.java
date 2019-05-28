@@ -27,7 +27,11 @@ public class Game implements Runnable {
 	
 	//State
 	private State gameState;
+	//Input
 	private KeyManager keyManager;
+	//Handler
+	private HandleClass handler;
+	
 	
 	public Game(String title, int width, int height) {
 		this.width = width;
@@ -40,8 +44,8 @@ public class Game implements Runnable {
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
 		Assets.init();
-		
-		gameState = new GameState(this);
+		handler = new HandleClass(this);
+		gameState = new GameState(handler);
 		State.setState(gameState);
 		
 	}
@@ -104,5 +108,13 @@ public class Game implements Runnable {
 		}catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getHeight() {
+		return height;
 	}
 }

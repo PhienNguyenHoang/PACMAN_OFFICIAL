@@ -5,23 +5,29 @@ import java.awt.Image;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
+import com.sun.prism.paint.Color;
+
 import Graphics.Animation;
 import Graphics.Assets;
 import game.Game;
+import game.HandleClass;
 
 
 
 public class Player extends Creature {
 	
-	private Game game;
+	private HandleClass handler;
 	private Animation pac_left,pac_right;
-	public Player(Game game, float x, float y) {
-		super(x, y,Creature.DEFAULT_WIDTH,Creature.DEFAULT_HEIGHT);
-		this.game = game;
+	public Player(HandleClass handler, float x, float y) {
+		super(handler, x, y,Creature.DEFAULT_WIDTH,Creature.DEFAULT_HEIGHT);
+		this.handler = handler;
 		
 		pac_left= new Animation(300,Assets.pac_left);
 		pac_right= new Animation(300,Assets.pac_right);
-		
+		bounds.x = 16;
+		bounds.y = 32;
+		bounds.width = 32;
+		bounds.height = 32;
 	}
 
 	@Override
@@ -37,16 +43,16 @@ public class Player extends Creature {
 		xMove=0;
 		yMove=0;
 		
-		if(game.getKeyManager().up) {
+		if(handler.getKeyManager().up) {
 			yMove= -speed;
 		}
-		if(game.getKeyManager().down) {
+		if(handler.getKeyManager().down) {
 			yMove= speed;
 		}
-		if(game.getKeyManager().right) {
+		if(handler.getKeyManager().right) {
 			xMove= speed;
 		}
-		if(game.getKeyManager().left) {
+		if(handler.getKeyManager().left) {
 			xMove= -speed;
 		}
 	}
@@ -54,6 +60,7 @@ public class Player extends Creature {
 	@Override
 	public void render(Graphics g) {
 		g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);
+
 	}
 	private BufferedImage getCurrentAnimationFrame() {
 		if(xMove<0) {

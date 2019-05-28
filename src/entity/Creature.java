@@ -1,5 +1,7 @@
 package entity;
 
+import game.HandleClass;
+
 public abstract class Creature extends Entity {
 	public static final int DEFAULT_LIVE=2;
 	public static final int DEFAULT_WIDTH=28;
@@ -10,8 +12,8 @@ public abstract class Creature extends Entity {
 	protected float xMove,yMove;
 	
 
-	public Creature(float x, float y,int width,int height) {
-		super(x, y,width,height);
+	public Creature(HandleClass handler, float x, float y,int width,int height) {
+		super(handler, x, y,width,height);
 		lives = DEFAULT_LIVE;
 		speed=DEFAULT_SPEED;
 		xMove=0;
@@ -19,10 +21,21 @@ public abstract class Creature extends Entity {
 		
 	}
 	public void move() {
+		moveX();
+		moveY();
+	}
+	
+	public void moveX() {
 		x+=xMove;
+	}
+	
+	public void moveY() {
 		y+=yMove;
 	}
 	
+	protected boolean collisionWithTile(int x, int y) {
+		return true;
+	}
 	
 	public float getxMove() {
 		return xMove;

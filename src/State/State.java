@@ -3,6 +3,7 @@ package State;
 import java.awt.Graphics;
 
 import game.Game;
+import game.HandleClass;
 
 public abstract class State {
 	
@@ -16,9 +17,9 @@ public abstract class State {
 		return currentState;
 	}
 	
-	protected Game game;
-	public State (Game game) {
-		this.game=game;
+	protected HandleClass handler;
+	public State (HandleClass handler) {
+		this.handler = handler;
 	}
 
 	public abstract void tick();

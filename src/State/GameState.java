@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import World.World;
 import entity.Player;
 import game.Game;
+import game.HandleClass;
 import tiles.Tile;
 
 public class GameState extends State{
@@ -12,10 +13,12 @@ public class GameState extends State{
 	private Player player;
 	private World world;
 	
-	public GameState(Game game) {
-		super(game);
-		player = new Player(game,100,100);
+	public GameState(HandleClass handler) {
+		super(handler);
 		world=new World("resources/Images/world1.txt");
+		handler.setWorld(world);
+		player = new Player(handler,100,100); 
+		
 	}
 	
 	@Override
