@@ -10,7 +10,7 @@ import tiles.Tile;
 
 public class World {
 	private int width,height;
-	private int [][] tiles;
+	public static int [][] tiles;
 	private int spawnX, spawnY;
 	
 	public World(String path) {
