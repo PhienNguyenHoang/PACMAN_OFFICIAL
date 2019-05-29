@@ -27,6 +27,7 @@ public class Game implements Runnable {
 	
 	//State
 	private State gameState;
+	//private State menuState; 
 	private KeyManager keyManager;
 	
 	public Game(String title, int width, int height) {
@@ -42,9 +43,12 @@ public class Game implements Runnable {
 		Assets.init();
 		
 		gameState = new GameState(this);
+		//menuState= new MainMenu(this);
 		State.setState(gameState);
 		
 	}
+	
+	
 	
 	private void tick() {
 		keyManager.tick();
@@ -74,11 +78,34 @@ public class Game implements Runnable {
 	}
 	@Override
 	public void run() {
+		
 		init();
+		
+		
+		int fps = 60; 
+		double timePerTick= 1000000000/ fps; 
+		double delta=0; 
+		long now; 
+		long lastTime= System.nanoTime(); 
+		long timer =0; 
+		int ticks=0;
+		
 		while(running) {
-			tick();
-			render();
-
+			now= System.nanoTime();
+			delta+= (now- lastTime)/ timePerTick;
+			timer+= now - lastTime;
+			lastTime= now;
+			if(delta>=1){
+				tick();
+				render();
+				ticks++; 
+				delta--; 
+			}
+			if (timer> 1000000000) {
+				System.out.println("Ticks and Frame : " + ticks);
+				ticks=0; 
+				timer=0; 
+			}
 		}
 		
 	}
