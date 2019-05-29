@@ -20,8 +20,8 @@ public class Ghost1 extends Creature {
 		
 		bounds.x=0;
 		bounds.y=0;
-		bounds.width=25;
-		bounds.height=25;
+		bounds.width=27;
+		bounds.height=27;
 		
 		ghost=new Animation(500,Assets.blinky);
 		
@@ -44,13 +44,12 @@ public class Ghost1 extends Creature {
 		int ver=(int) super.y;
 		int w=Tile.TILEWIDTH;
 		System.out.println("Up: " + up + "Down: " + down + "Right: "+right +"Left: "+left);
-		System.out.println(hor/w );
 		if(up) {
-			if(World.World.tiles[hor/w][(ver+29)/w-1]==2) {
+			if(World.World.tiles[hor/w][(ver+29)/w-1]==0) {
 				yMove-=speed;
 			}
 			else {
-				if(World.World.tiles[hor/w+1][ver/w]==2 && World.World.tiles[hor/w-1][ver/w]==2) {
+				if(World.World.tiles[hor/w+1][ver/w]==0 && World.World.tiles[hor/w-1][ver/w]==0) {
 					int r= new Random().nextInt(2);
 					if(r==1) {
 						xMove-=speed;
@@ -63,12 +62,12 @@ public class Ghost1 extends Creature {
 						right=true;
 					}
 				}
-				else if(World.World.tiles[hor/w-1][ver/w]==2) {
+				else if(World.World.tiles[hor/w-1][ver/w]==0) {
 					xMove-=speed;
 					up=false;
 					left=true;
 				}
-				else if(World.World.tiles[hor/w+1][ver/w]==2) {
+				else if(World.World.tiles[hor/w+1][ver/w]==0) {
 					xMove+=speed;
 					up=false;
 					right=true;
@@ -82,13 +81,13 @@ public class Ghost1 extends Creature {
 		}
 
 		if(down) {
-			if(World.World.tiles[hor/w][(ver-29)/w+1]==2) {
+			if(World.World.tiles[hor/w][(ver-29)/w+2]==0) {
 				
 				yMove+=speed;
 				
 			}
 			else {
-				if(World.World.tiles[hor/w+1][ver/w]==2 && World.World.tiles[hor/w-1][ver/w]==2) {
+				if(World.World.tiles[hor/w+1][ver/w]==0 && World.World.tiles[hor/w-1][ver/w]==0) {
 					int r= new Random().nextInt(2);
 					if(r==1) {
 						xMove-=speed;
@@ -101,12 +100,12 @@ public class Ghost1 extends Creature {
 						right=true;
 					}
 				}
-				else if(World.World.tiles[hor/w-1][ver/w]==2) {
+				else if(World.World.tiles[hor/w-1][ver/w]==0) {
 					xMove-=speed;
 					down=false;
 					left=true;
 				}
-				else if(World.World.tiles[hor/w+1][ver/w]==2) {
+				else if(World.World.tiles[hor/w+1][ver/w]==0) {
 					xMove+=speed;
 					down=false;
 					right=true;
@@ -118,12 +117,13 @@ public class Ghost1 extends Creature {
 				}
 			}
 		}
+		System.out.println(World.World.tiles[(hor+29)/w-1][ver/w]);
 		if(left) {
-			if(World.World.tiles[(hor+29)/w-1][ver/w]==2) {
+			if(World.World.tiles[(hor+29)/w-1][ver/w]==0) {
 				xMove-=speed;
 			}
 			else {
-				if(World.World.tiles[hor/w][ver/w+1]==2 && World.World.tiles[hor/w][ver/w-1]==2) {
+				if(World.World.tiles[hor/w][ver/w+1]==0 && World.World.tiles[hor/w][ver/w-1]==0) {
 					int r= new Random().nextInt(2);
 					if(r==1) {
 						yMove-=speed;
@@ -136,12 +136,12 @@ public class Ghost1 extends Creature {
 						down=true;
 					}
 				}
-				else if(World.World.tiles[hor/w][ver/w-1]==2) {
+				else if(World.World.tiles[hor/w][ver/w-1]==0) {
 					yMove-=speed;
 					left=false;
 					up=true;
 				}
-				else if(World.World.tiles[hor/w][ver/w+1]==2) {
+				else if(World.World.tiles[hor/w][ver/w+1]==0) {
 					yMove+=speed;
 					left=false;
 					down=true;
@@ -153,12 +153,13 @@ public class Ghost1 extends Creature {
 				}
 			}
 		}
+		//System.out.print(World.World.tiles[(hor-29)/w+2][ver/w]);
 		if(right) {
-			if(World.World.tiles[(hor-29)/w+1][ver/w]==2) {
+			if(World.World.tiles[(hor-29)/w+2][ver/w]==0) {
 				xMove+=speed;
 			}
 			else {
-				if(World.World.tiles[hor/w][ver/w+1]==2 && World.World.tiles[hor/w][ver/w-1]==2) {
+				if(World.World.tiles[hor/w][ver/w+1]==0 && World.World.tiles[hor/w][ver/w-1]==0) {
 					int r= new Random().nextInt(2);
 					if(r==1) {
 						yMove-=speed;
@@ -171,12 +172,12 @@ public class Ghost1 extends Creature {
 						down=true;
 					}
 				}
-				else if(World.World.tiles[hor/w][ver/w-1]==2) {
+				else if(World.World.tiles[hor/w][ver/w-1]==0) {
 					yMove-=speed;
 					right=false;
 					up=true;
 				}
-				else if(World.World.tiles[hor/20][ver/w+1]==2) {
+				else if(World.World.tiles[hor/w][ver/w+1]==0) {
 					yMove+=speed;
 					right=false;
 					down=true;
