@@ -26,8 +26,8 @@ public class Player extends Creature {
 		pac_right= new Animation(300,Assets.pac_right);
 		bounds.x = 0;
 		bounds.y = 0;
-		bounds.width = 22;
-		bounds.height = 22;
+		bounds.width = 25;
+		bounds.height = 25;
 	}
 
 	@Override

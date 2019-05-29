@@ -25,7 +25,7 @@ public class Assets {
 		pinky=new BufferedImage[2];
 		pinky[0]=ImageLoader.loadImage("/Images/pinky_left.png");
 		pinky[1]=ImageLoader.loadImage("/Images/pinky_right.png");
-		coin=sheet.crop(width*3, height, width, height);
+		coin=ImageLoader.loadImage("/Images/cointile.png");
 		pac_left=new BufferedImage[2];
 		pac_left[0] = ImageLoader.loadImage("/Images/pac_left.png");
 		pac_left[1] = ImageLoader.loadImage("/Images/pac_left1.png");
