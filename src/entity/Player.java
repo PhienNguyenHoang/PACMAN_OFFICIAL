@@ -24,10 +24,10 @@ public class Player extends Creature {
 		
 		pac_left= new Animation(300,Assets.pac_left);
 		pac_right= new Animation(300,Assets.pac_right);
-		bounds.x = 28;
-		bounds.y = 28;
-		bounds.width = 28;
-		bounds.height = 28;
+		bounds.x = 0;
+		bounds.y = 0;
+		bounds.width = 22;
+		bounds.height = 22;
 	}
 
 	@Override

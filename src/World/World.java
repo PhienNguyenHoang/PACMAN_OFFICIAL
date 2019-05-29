@@ -31,7 +31,7 @@ public class World {
 	}
 	public Tile getTile(int x, int y) {
 		if(x < 0 || y < 0 || x >= width || y >= height)
-			return Tile.wall;
+			return Tile.blackTile;
 		
 		Tile t = Tile.tiles[tiles[x][y]];
 		if(t==null)

@@ -10,6 +10,10 @@ public class wall extends Tile{
 		super(Assets.wall, id);
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public boolean isSolid() {
+		return true;
+	}
 	
 	
 
