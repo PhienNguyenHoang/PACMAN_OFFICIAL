@@ -7,6 +7,10 @@ public class Tile {
 	public static Tile[] tiles= new Tile[256];
 	public static Tile blackTile= new blackTile(0);
 	public static Tile wall= new wall(1);
+	public static Tile coin = new Coin(2);
+	public static Tile diamond= new Diamond(3); 
+	
+	
 	public static final int TILEWIDTH=30,TILEHEIGHT=30;
 	
 	

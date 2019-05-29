@@ -35,7 +35,7 @@ public class World {
 		
 		Tile t = Tile.tiles[tiles[x][y]];
 		if(t==null)
-			return Tile.blackTile;
+			return Tile.coin;
 		return t;
 	}
 	private void loadWorld(String path) {
@@ -57,6 +57,7 @@ public class World {
 		spawnY = Utils.parseInt(tokens[3]);
 
 		tiles= new int[width][height];
+		
 		for ( int y=0; y<height; y++){
 			for ( int x=0; x< width; x++){
 				tiles [x][y]= Utils.parseInt(tokens[(x+y*width)+4]);
