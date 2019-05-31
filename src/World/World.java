@@ -351,7 +351,6 @@ public class World {
 		entityManager.addEntity(new Ghost2(handler, 30*5, 30*6));
 		
 
-
 		
 		
 		loadWorld(path);
