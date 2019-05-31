@@ -350,15 +350,8 @@ public class World {
 		entityManager.addEntity(new Ghost1(handler, 30*27, 30*17));
 		entityManager.addEntity(new Ghost2(handler, 30*5, 30*6));
 		
-		//ADD ENTITY
-		
-		/*for(int y=0;y< this.height;y++) {
-			for(int x=0;x<this.width;x++) {
-				if((tile.getID()==0)&& (x!=spawnX)&&(y!= spawnY)) {
-					entityManager.addEntity(new Coin(handler,(int) x*30,(int)y*30));
-				}
-			}
-		}*/
+
+
 		
 		
 		loadWorld(path);
@@ -378,8 +371,7 @@ public class World {
 		for(int y=0;y<height;y++) {
 			for(int x=0;x<width;x++) {
 				getTile(x,y).render(g, x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT);
-				//entityManager.render(g, x*Creature.DEFAULT_WIDTH, y*Creature.DEFAULT_HEIGHT);
-				//
+				
 			}
 			
 		}
@@ -408,17 +400,6 @@ public class World {
 	
 	
 	private void loadWorld(String path) {
-		/*width=10;
-		height=10;
-		tiles=new int [width][height];
-		
-		for (int x=0;x<width;x++) {
-			for(int y=0;y<height;y++) {
-				tiles[x][y]=0;
-				
-			}*/
-		
-		
 		//load words from file world1.txt
 		String files =Utils. loadFileAsString(path);
 		String[] tokens = files.split("\\s+");
