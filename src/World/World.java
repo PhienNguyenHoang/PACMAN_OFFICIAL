@@ -11,6 +11,7 @@ import entity.Ghost1;
 import entity.Ghost2;
 import entity.Player;
 import entitystatic.Coin;
+import entitystatic.Diamond;
 import tiles.Tile;
 
 
@@ -21,14 +22,20 @@ public class World {
 	public static int [][] tiles;
 	private int spawnX, spawnY;
 	private EntityManager entityManager;
+	private Tile tile; 
 	
 
 	
 	
 	public World(HandleClass handler, String path) {
 		
-		
+		//Add PLAYER
 		entityManager = new EntityManager(handler, new Player (handler,30,30));
+				
+		
+		//ADD COIN
+		
+		
 		entityManager.addEntity(new Coin (handler,30*2, 30));
 		entityManager.addEntity(new Coin (handler,30*3, 30));
 		entityManager.addEntity(new Coin (handler,30*4, 30));
@@ -56,28 +63,299 @@ public class World {
 		entityManager.addEntity(new Coin (handler,30*26, 30));
 		entityManager.addEntity(new Coin (handler,30*27, 30));
 		entityManager.addEntity(new Coin (handler,30*28, 30));
-		entityManager.addEntity(new Coin (handler,30, 30*2));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
-		entityManager.addEntity(new Coin (handler,30*2, 30));
 		
+		entityManager.addEntity(new Coin (handler,30, 30*2));
+		entityManager.addEntity(new Coin (handler,30*3, 30*2));
+		entityManager.addEntity(new Coin (handler,30*7, 30*2));
+		entityManager.addEntity(new Coin (handler,30*11, 30*2));
+		entityManager.addEntity(new Coin (handler,30*18, 30*2));
+		entityManager.addEntity(new Coin (handler,30*22, 30*2));
+		entityManager.addEntity(new Coin (handler,30*26, 30*2));
+		entityManager.addEntity(new Coin (handler,30*28, 30*2));
+		entityManager.addEntity(new Coin (handler,30, 30*3));
+		
+		entityManager.addEntity(new Coin (handler,30*3, 30*3));
+		entityManager.addEntity(new Coin (handler,30*7, 30*3));
+		entityManager.addEntity(new Coin (handler,30*11, 30*3));
+		entityManager.addEntity(new Coin (handler,30*18, 30*3));
+		entityManager.addEntity(new Coin (handler,30*22, 30*3));
+		entityManager.addEntity(new Coin (handler,30*26, 30*3));
+		entityManager.addEntity(new Coin (handler,30*28, 30*3));
+		
+		entityManager.addEntity(new Coin (handler,30, 30*4));
+		entityManager.addEntity(new Coin (handler,30*2, 30*4));
+		entityManager.addEntity(new Coin (handler,30*3, 30*4));
+		entityManager.addEntity(new Coin (handler,30*4, 30*4));
+		entityManager.addEntity(new Coin (handler,30*5, 30*4));
+		entityManager.addEntity(new Coin (handler,30*6, 30*4));
+		entityManager.addEntity(new Coin (handler,30*7, 30*4));
+		entityManager.addEntity(new Coin (handler,30*8, 30*4));
+		entityManager.addEntity(new Coin (handler,30*9, 30*4));
+		entityManager.addEntity(new Coin (handler,30*10, 30*4));
+		entityManager.addEntity(new Coin (handler,30*11, 30*4));
+		entityManager.addEntity(new Coin (handler,30*12, 30*4));
+		entityManager.addEntity(new Coin (handler,30*13, 30*4));
+		entityManager.addEntity(new Coin (handler,30*14, 30*4));
+		entityManager.addEntity(new Coin (handler,30*15, 30*4));
+		entityManager.addEntity(new Coin (handler,30*16, 30*4));
+		entityManager.addEntity(new Coin (handler,30*17, 30*4));
+		entityManager.addEntity(new Coin (handler,30*18, 30*4));
+		entityManager.addEntity(new Coin (handler,30*19, 30*4));
+		entityManager.addEntity(new Coin (handler,30*20, 30*4));
+		entityManager.addEntity(new Coin (handler,30*21, 30*4));
+		entityManager.addEntity(new Coin (handler,30*22, 30*4));
+		entityManager.addEntity(new Coin (handler,30*23, 30*4));
+		entityManager.addEntity(new Coin (handler,30*24, 30*4));
+		entityManager.addEntity(new Coin (handler,30*25, 30*4));
+		entityManager.addEntity(new Coin (handler,30*26, 30*4));
+		entityManager.addEntity(new Coin (handler,30*27, 30*4));
+		entityManager.addEntity(new Coin (handler,30*28, 30*4));
+
+		entityManager.addEntity(new Coin (handler,30, 30*5));
+		entityManager.addEntity(new Coin (handler,30*5, 30*5));
+		entityManager.addEntity(new Coin (handler,30*24, 30*5));
+		entityManager.addEntity(new Coin (handler,30*28, 30*5));
+		
+		entityManager.addEntity(new Coin(handler,30,30*6));
+		entityManager.addEntity(new Coin (handler,30*2, 30*6));
+		entityManager.addEntity(new Coin (handler,30*3, 30*6));
+		entityManager.addEntity(new Coin (handler,30*4, 30*6));
+		entityManager.addEntity(new Coin (handler,30*5, 30*6));
+		entityManager.addEntity(new Coin (handler,30*6, 30*6));
+		entityManager.addEntity(new Coin (handler,30*7, 30*6));
+		entityManager.addEntity(new Coin (handler,30*8, 30*6));
+		entityManager.addEntity(new Coin (handler,30*9, 30*6));
+		entityManager.addEntity(new Coin (handler,30*10, 30*6));
+		entityManager.addEntity(new Coin (handler,30*11, 30*6));
+		entityManager.addEntity(new Coin (handler,30*12, 30*6));
+		entityManager.addEntity(new Coin (handler,30*13, 30*6));
+		entityManager.addEntity(new Coin (handler,30*14, 30*6));
+		entityManager.addEntity(new Coin (handler,30*15, 30*6));
+		entityManager.addEntity(new Coin (handler,30*16, 30*6));
+		entityManager.addEntity(new Coin (handler,30*17, 30*6));
+		entityManager.addEntity(new Coin (handler,30*18, 30*6));
+		entityManager.addEntity(new Coin (handler,30*19, 30*6));
+		entityManager.addEntity(new Coin (handler,30*20, 30*6));
+		entityManager.addEntity(new Coin (handler,30*21, 30*6));
+		entityManager.addEntity(new Coin (handler,30*22, 30*6));
+		entityManager.addEntity(new Coin (handler,30*23, 30*6));
+		entityManager.addEntity(new Coin (handler,30*24, 30*6));
+		entityManager.addEntity(new Coin (handler,30*25, 30*6));
+		entityManager.addEntity(new Coin (handler,30*26, 30*6));
+		entityManager.addEntity(new Coin (handler,30*27, 30*6));
+		entityManager.addEntity(new Coin (handler,30*28, 30*6));
+		
+		entityManager.addEntity(new Coin(handler,30,30*7));
+		entityManager.addEntity(new Coin (handler,30*3, 30*7));
+		entityManager.addEntity(new Coin (handler,30*7, 30*7));
+		entityManager.addEntity(new Coin (handler,30*9, 30*7));
+		entityManager.addEntity(new Coin (handler,30*20, 30*7));
+		entityManager.addEntity(new Coin (handler,30*22, 30*7));
+		entityManager.addEntity(new Coin (handler,30*26, 30*7));
+		entityManager.addEntity(new Coin (handler,30*28, 30*7));
+		
+		entityManager.addEntity(new Coin(handler,30,30*8));
+		entityManager.addEntity(new Coin (handler,30*3, 30*8));
+		entityManager.addEntity(new Coin (handler,30*4, 30*8));
+		entityManager.addEntity(new Coin (handler,30*5, 30*8));
+		entityManager.addEntity(new Coin (handler,30*7, 30*8));
+		entityManager.addEntity(new Coin (handler,30*9, 30*8));
+		entityManager.addEntity(new Coin (handler,30*11, 30*8));
+		entityManager.addEntity(new Coin (handler,30*12, 30*8));
+		entityManager.addEntity(new Coin (handler,30*13, 30*8));
+		entityManager.addEntity(new Coin (handler,30*14, 30*8));
+		entityManager.addEntity(new Coin (handler,30*15, 30*8));
+		entityManager.addEntity(new Coin (handler,30*16, 30*8));
+		entityManager.addEntity(new Coin (handler,30*17, 30*8));
+		entityManager.addEntity(new Coin (handler,30*18, 30*8));
+		entityManager.addEntity(new Coin (handler,30*20, 30*8));
+		entityManager.addEntity(new Coin (handler,30*22, 30*8));
+		entityManager.addEntity(new Coin (handler,30*24, 30*8));
+		entityManager.addEntity(new Coin (handler,30*25, 30*8));
+		entityManager.addEntity(new Coin (handler,30*26, 30*8));
+		entityManager.addEntity(new Coin (handler,30*28, 30*8));
+		
+		entityManager.addEntity(new Coin (handler, 30, 30*9));
+		entityManager.addEntity(new Coin (handler,30*5, 30*9));
+		entityManager.addEntity(new Coin (handler,30*7, 30*9));
+		//
+		entityManager.addEntity(new Diamond (handler, 30*9, 30*9));
+		entityManager.addEntity(new Diamond (handler, 30*20, 30*9));
+		
+		//
+		entityManager.addEntity(new Coin (handler,30*15, 30*9));
+		entityManager.addEntity(new Coin (handler,30*22, 30*9));
+		entityManager.addEntity(new Coin (handler,30*24, 30*9));
+		entityManager.addEntity(new Coin (handler,30*28, 30*9));
+		
+		entityManager.addEntity(new Coin(handler,30,30*10));
+		entityManager.addEntity(new Coin (handler,30*5, 30*10));
+		entityManager.addEntity(new Coin (handler,30*7, 30*10));
+		entityManager.addEntity(new Coin (handler,30*11, 30*10));
+		entityManager.addEntity(new Coin (handler,30*12, 30*10));
+		entityManager.addEntity(new Coin (handler,30*13, 30*10));
+		entityManager.addEntity(new Coin (handler,30*14, 30*10));
+		entityManager.addEntity(new Coin (handler,30*15, 30*10));
+		entityManager.addEntity(new Coin (handler,30*16, 30*10));
+		entityManager.addEntity(new Coin (handler,30*17, 30*10));
+		entityManager.addEntity(new Coin (handler,30*18, 30*10));
+		entityManager.addEntity(new Coin (handler,30*22, 30*10));
+		entityManager.addEntity(new Coin (handler,30*24, 30*10));
+		entityManager.addEntity(new Coin (handler,30*26, 30*10));
+		entityManager.addEntity(new Coin (handler,30*28, 30*10));
+		
+		entityManager.addEntity(new Coin(handler,30,30*11));
+		entityManager.addEntity(new Coin (handler,30*2, 30*11));
+		entityManager.addEntity(new Coin (handler,30*3, 30*11));
+		entityManager.addEntity(new Coin (handler,30*4, 30*11));
+		entityManager.addEntity(new Coin (handler,30*5, 30*11));
+		entityManager.addEntity(new Coin (handler,30*6, 30*11));
+		entityManager.addEntity(new Coin (handler,30*7, 30*11));
+		entityManager.addEntity(new Coin (handler,30*8, 30*11));
+		entityManager.addEntity(new Coin (handler,30*9, 30*11));
+		entityManager.addEntity(new Coin (handler,30*11, 30*11));
+		entityManager.addEntity(new Coin (handler,30*18, 30*11));
+		entityManager.addEntity(new Coin (handler,30*19, 30*11));
+		entityManager.addEntity(new Coin (handler,30*20, 30*11));
+		entityManager.addEntity(new Coin (handler,30*21, 30*11));
+		entityManager.addEntity(new Coin (handler,30*22, 30*11));
+		entityManager.addEntity(new Coin (handler,30*23, 30*11));
+		entityManager.addEntity(new Coin (handler,30*24, 30*11));
+		entityManager.addEntity(new Coin (handler,30*26, 30*11));
+		entityManager.addEntity(new Coin (handler,30*28, 30*11));
+		
+
+		entityManager.addEntity(new Coin(handler,30,30*12));
+		entityManager.addEntity(new Coin (handler,30*5, 30*12));
+		entityManager.addEntity(new Coin (handler,30*9, 30*12));
+		entityManager.addEntity(new Coin (handler,30*11, 30*12));
+		entityManager.addEntity(new Coin (handler,30*13, 30*12));
+		entityManager.addEntity(new Coin (handler,30*16, 30*12));
+		entityManager.addEntity(new Coin (handler,30*18, 30*12));
+		entityManager.addEntity(new Coin (handler,30*20, 30*12));
+		entityManager.addEntity(new Coin (handler,30*24, 30*12));
+		entityManager.addEntity(new Coin (handler,30*26, 30*12));
+		entityManager.addEntity(new Coin (handler,30*27, 30*12));
+		entityManager.addEntity(new Coin (handler,30*28, 30*12));
+		
+
+		entityManager.addEntity(new Coin(handler,30,30*13));
+		entityManager.addEntity(new Coin (handler,30*3, 30*13));
+		entityManager.addEntity(new Coin (handler,30*4, 30*13));
+		entityManager.addEntity(new Coin (handler,30*5, 30*13));
+		entityManager.addEntity(new Coin (handler,30*6, 30*13));
+		entityManager.addEntity(new Coin (handler,30*7, 30*13));
+		entityManager.addEntity(new Coin (handler,30*9, 30*13));
+		entityManager.addEntity(new Coin (handler,30*11, 30*13));
+		entityManager.addEntity(new Coin (handler,30*13, 30*13));
+		entityManager.addEntity(new Coin (handler,30*16, 30*13));
+		entityManager.addEntity(new Coin (handler,30*18, 30*13));
+		entityManager.addEntity(new Coin (handler,30*20, 30*13));
+		entityManager.addEntity(new Coin (handler,30*22, 30*13));
+		entityManager.addEntity(new Coin (handler,30*23, 30*13));
+		entityManager.addEntity(new Coin (handler,30*24, 30*13));
+		entityManager.addEntity(new Coin (handler,30*25, 30*13));
+		entityManager.addEntity(new Coin (handler,30*26, 30*13));
+		entityManager.addEntity(new Coin (handler,30*28, 30*13));
+		
+		entityManager.addEntity(new Coin(handler,30,30*14));
+		entityManager.addEntity(new Coin (handler,30*3, 30*14));
+		entityManager.addEntity(new Coin (handler,30*7, 30*14));
+		entityManager.addEntity(new Coin (handler,30*9, 30*14));
+		entityManager.addEntity(new Coin (handler,30*11, 30*14));
+		entityManager.addEntity(new Coin (handler,30*13, 30*14));
+		entityManager.addEntity(new Coin (handler,30*16, 30*14));
+		entityManager.addEntity(new Coin (handler,30*20, 30*14));
+		entityManager.addEntity(new Coin (handler,30*22, 30*14));
+		entityManager.addEntity(new Coin (handler,30*26, 30*14));
+		entityManager.addEntity(new Coin (handler,30*28, 30*14));
+
+		entityManager.addEntity(new Coin(handler,30,30*15));
+		entityManager.addEntity(new Coin (handler,30*3, 30*15));
+		entityManager.addEntity(new Coin (handler,30*4, 30*15));
+		entityManager.addEntity(new Coin (handler,30*5, 30*15));
+		entityManager.addEntity(new Coin (handler,30*6, 30*15));
+		entityManager.addEntity(new Coin (handler,30*7, 30*15));
+		entityManager.addEntity(new Coin (handler,30*9, 30*15));
+		entityManager.addEntity(new Coin (handler,30*11, 30*15));
+		entityManager.addEntity(new Coin (handler,30*12, 30*15));
+		entityManager.addEntity(new Coin (handler,30*13, 30*15));
+		entityManager.addEntity(new Coin (handler,30*14, 30*15));
+		entityManager.addEntity(new Coin (handler,30*15, 30*15));
+		entityManager.addEntity(new Coin (handler,30*16, 30*15));
+		entityManager.addEntity(new Coin (handler,30*17, 30*15));
+		entityManager.addEntity(new Coin (handler,30*18, 30*15));
+		entityManager.addEntity(new Coin (handler,30*20, 30*15));
+		entityManager.addEntity(new Coin (handler,30*22, 30*15));
+		entityManager.addEntity(new Coin (handler,30*23, 30*15));
+		entityManager.addEntity(new Coin (handler,30*24, 30*15));
+		entityManager.addEntity(new Coin (handler,30*25, 30*15));
+		entityManager.addEntity(new Coin (handler,30*26, 30*15));
+		entityManager.addEntity(new Coin (handler,30*28, 30*15));
+		
+		entityManager.addEntity(new Coin(handler,30,30*16));
+		entityManager.addEntity(new Coin (handler,30*3, 30*16));
+		entityManager.addEntity(new Coin (handler,30*7, 30*16));
+		entityManager.addEntity(new Coin (handler,30*9, 30*16));
+		entityManager.addEntity(new Coin (handler,30*11, 30*16));
+		entityManager.addEntity(new Coin (handler,30*12, 30*16));
+		entityManager.addEntity(new Coin (handler,30*17, 30*16));
+		entityManager.addEntity(new Coin (handler,30*18, 30*16));
+		entityManager.addEntity(new Coin (handler,30*20, 30*16));
+		entityManager.addEntity(new Coin (handler,30*22, 30*16));
+		entityManager.addEntity(new Coin (handler,30*26, 30*16));
+		entityManager.addEntity(new Coin (handler,30*28, 30*16));
+		
+		entityManager.addEntity(new Coin(handler,30,30*16));
+		entityManager.addEntity(new Coin (handler,30*3, 30*16));
+		entityManager.addEntity(new Coin (handler,30*7, 30*16));
+		entityManager.addEntity(new Coin (handler,30*9, 30*16));
+		entityManager.addEntity(new Coin (handler,30*11, 30*16));
+		entityManager.addEntity(new Coin (handler,30*18, 30*16));
+		entityManager.addEntity(new Coin (handler,30*20, 30*16));
+		entityManager.addEntity(new Coin (handler,30*22, 30*16));
+		entityManager.addEntity(new Coin (handler,30*26, 30*16));
+		entityManager.addEntity(new Coin (handler,30*28, 30*16));
+		
+		
+		entityManager.addEntity(new Coin(handler,30,30*17));
+		entityManager.addEntity(new Coin (handler,30*3, 30*17));
+		entityManager.addEntity(new Coin (handler,30*7, 30*17));
+		entityManager.addEntity(new Coin (handler,30*9, 30*17));
+		entityManager.addEntity(new Coin (handler,30*11, 30*17));
+		entityManager.addEntity(new Coin (handler,30*18, 30*17));
+		entityManager.addEntity(new Coin (handler,30*20, 30*17));
+		entityManager.addEntity(new Coin (handler,30*22, 30*17));
+		entityManager.addEntity(new Coin (handler,30*26, 30*17));
+		entityManager.addEntity(new Coin (handler,30*28, 30*17));
+		
+		entityManager.addEntity(new Coin(handler,30,30*18));
+		entityManager.addEntity(new Coin (handler,30*3, 30*18));
+		entityManager.addEntity(new Diamond (handler,30*7, 30*18));
+		entityManager.addEntity(new Coin (handler,30*11, 30*18));
+		entityManager.addEntity(new Coin (handler,30*12, 30*18));
+		entityManager.addEntity(new Coin (handler,30*13, 30*18));
+		entityManager.addEntity(new Coin (handler,30*14, 30*18));
+		entityManager.addEntity(new Coin (handler,30*15, 30*18));
+		entityManager.addEntity(new Coin (handler,30*16, 30*18));
+		entityManager.addEntity(new Coin (handler,30*17, 30*18));
+		entityManager.addEntity(new Coin (handler,30*18, 30*18));
+		entityManager.addEntity(new Diamond (handler,30*22, 30*18));
+		entityManager.addEntity(new Coin (handler,30*26, 30*18));
+		entityManager.addEntity(new Coin (handler,30*28, 30*18));
+		
+		
+		
+		//ADD GHOST
 		entityManager.addEntity(new Ghost1(handler, 30*27, 30*17));
 		entityManager.addEntity(new Ghost2(handler, 30*5, 30*6));
 		
+		//ADD ENTITY
+		
 		/*for(int y=0;y< this.height;y++) {
 			for(int x=0;x<this.width;x++) {
-				if((this.getTile(x,y)!=Tile.wall)&& (x!=spawnX)&&(y!= spawnY)) {
-					entityManager.addEntity(new Coin(handler,(int) x,(int)y));
+				if((tile.getID()==0)&& (x!=spawnX)&&(y!= spawnY)) {
+					entityManager.addEntity(new Coin(handler,(int) x*30,(int)y*30));
 				}
 			}
 		}*/

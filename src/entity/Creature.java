@@ -5,8 +5,8 @@ import tiles.Tile;
 
 public abstract class Creature extends Entity {
 	public static final int DEFAULT_LIVE=2;
-	public static final int DEFAULT_WIDTH=28;
-	public static final int DEFAULT_HEIGHT=28;
+	public static final int DEFAULT_WIDTH=25;
+	public static final int DEFAULT_HEIGHT=25;
 	public static final float DEFAULT_SPEED=2.0f;
 	protected int lives;
 	protected float speed;
