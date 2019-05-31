@@ -5,7 +5,7 @@ package World;
 import java.awt.Graphics;
 import game.HandleClass;
 import World.Utils;
-import entity.Creature;
+
 import entity.EntityManager;
 import entity.Ghost1;
 import entity.Ghost2;
@@ -22,7 +22,7 @@ public class World {
 	public static int [][] tiles;
 	private int spawnX, spawnY;
 	private EntityManager entityManager;
-	private Tile tile; 
+	
 	
 
 	
