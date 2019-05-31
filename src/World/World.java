@@ -7,6 +7,8 @@ import game.HandleClass;
 import World.Utils;
 import entity.Creature;
 import entity.EntityManager;
+import entity.Ghost1;
+import entity.Ghost2;
 import entity.Player;
 import entitystatic.Coin;
 import tiles.Tile;
@@ -27,15 +29,65 @@ public class World {
 		
 		
 		entityManager = new EntityManager(handler, new Player (handler,30,30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*3, 30));
+		entityManager.addEntity(new Coin (handler,30*4, 30));
+		entityManager.addEntity(new Coin (handler,30*5, 30));
+		entityManager.addEntity(new Coin (handler,30*6, 30));
+		entityManager.addEntity(new Coin (handler,30*7, 30));
+		entityManager.addEntity(new Coin (handler,30*8, 30));
+		entityManager.addEntity(new Coin (handler,30*9, 30));
+		entityManager.addEntity(new Coin (handler,30*10, 30));
+		entityManager.addEntity(new Coin (handler,30*11, 30));
+		entityManager.addEntity(new Coin (handler,30*12, 30));
+		entityManager.addEntity(new Coin (handler,30*13, 30));
+		entityManager.addEntity(new Coin (handler,30*14, 30));
+		entityManager.addEntity(new Coin (handler,30*15, 30));
+		entityManager.addEntity(new Coin (handler,30*16, 30));
+		entityManager.addEntity(new Coin (handler,30*17, 30));
+		entityManager.addEntity(new Coin (handler,30*18, 30));
+		entityManager.addEntity(new Coin (handler,30*19, 30));
+		entityManager.addEntity(new Coin (handler,30*20, 30));
+		entityManager.addEntity(new Coin (handler,30*21, 30));
+		entityManager.addEntity(new Coin (handler,30*22, 30));
+		entityManager.addEntity(new Coin (handler,30*23, 30));
+		entityManager.addEntity(new Coin (handler,30*24, 30));
+		entityManager.addEntity(new Coin (handler,30*25, 30));
+		entityManager.addEntity(new Coin (handler,30*26, 30));
+		entityManager.addEntity(new Coin (handler,30*27, 30));
+		entityManager.addEntity(new Coin (handler,30*28, 30));
+		entityManager.addEntity(new Coin (handler,30, 30*2));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		entityManager.addEntity(new Coin (handler,30*2, 30));
+		
+		entityManager.addEntity(new Ghost1(handler, 30*27, 30*17));
+		entityManager.addEntity(new Ghost2(handler, 30*5, 30*6));
+		
+		/*for(int y=0;y< this.height;y++) {
+			for(int x=0;x<this.width;x++) {
+				if((this.getTile(x,y)!=Tile.wall)&& (x!=spawnX)&&(y!= spawnY)) {
+					entityManager.addEntity(new Coin(handler,(int) x,(int)y));
+				}
+			}
+		}*/
+		
 		
 		loadWorld(path);
 	
 		entityManager.getPlayer().setX((int)spawnX);
 		entityManager.getPlayer().setY((int)spawnY);
-		
-		entityManager.addEntity(new Coin (handler,30*2, 30));
 	
-		
 	}
 	
 	
