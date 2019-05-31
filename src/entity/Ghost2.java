@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import Graphics.Animation;
 import Graphics.Assets;
 import game.HandleClass;
+import java.math.*;
 
 public class Ghost2 extends Creature {
 	public Animation ghost1;
@@ -25,7 +26,6 @@ public class Ghost2 extends Creature {
 	@Override
 	public void tick() {
 		ghost1.tick();
-		
 	}
 
 	@Override
@@ -39,12 +39,10 @@ public class Ghost2 extends Creature {
 	
 	
 	private void checkRoute() {
-		//float xInky = 
+		
 		
 	}
 	
-	private void checkDistance() {
-		
-	}
+
 
 }
