@@ -42,6 +42,8 @@ public class Ghost1 extends Creature {
 		int hor=(int) super.x;
 		int ver=(int) super.y;
 		int w=Tile.TILEWIDTH;
+		System.out.println(EntityManager.player.getX()+ " "+ EntityManager.player.getY() );
+		System.out.println(super.x +" "+ super.y);
 		//System.out.println("Up: " + up + "Down: " + down + "Right: "+right +"Left: "+left);
 		if(up) {
 			if(World.World.tiles[hor/w][(ver+29)/w-1]==0) {

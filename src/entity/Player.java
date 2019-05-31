@@ -18,9 +18,11 @@ public class Player extends Creature {
 	
 	private HandleClass handler;
 	private Animation pac_left,pac_right;
+	public static int pX,pY;
 	public Player(HandleClass handler, float x, float y) {
 		super(handler, x, y,Creature.DEFAULT_WIDTH,Creature.DEFAULT_HEIGHT);
 		this.handler = handler;
+
 		
 		pac_left= new Animation(300,Assets.pac_left);
 		pac_right= new Animation(300,Assets.pac_right);

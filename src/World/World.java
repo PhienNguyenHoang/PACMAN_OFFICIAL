@@ -74,13 +74,13 @@ public class World {
 		entityManager.addEntity(new Ghost1(handler, 30*27, 30*17));
 		entityManager.addEntity(new Ghost2(handler, 30*5, 30*6));
 		
-		/*for(int y=0;y< this.height;y++) {
-			for(int x=0;x<this.width;x++) {
-				if((this.getTile(x,y)!=Tile.wall)&& (x!=spawnX)&&(y!= spawnY)) {
-					entityManager.addEntity(new Coin(handler,(int) x,(int)y));
-				}
-			}
-		}*/
+//		for(int y=0;y< this.height;y++) {
+//			for(int x=0;x<this.width;x++) {
+//				if((this.tiles[x][y]==0) ){
+//					entityManager.addEntity(new Coin(handler,(int) x*30,(int)y*30));
+//				}
+//			}
+//		}
 		
 		
 		loadWorld(path);

@@ -13,7 +13,7 @@ public class EntityManager {
 	private HandleClass handler;
 	
 	
-	private Player player;
+	public static Player player;
 	
 	
 	
