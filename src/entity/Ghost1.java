@@ -13,7 +13,6 @@ import tiles.Tile;
 public class Ghost1 extends Creature {
 	public Animation ghost;
 	public boolean up=true,down,left,right;
-
 	public Ghost1(HandleClass handler, float x, float y) {
 
 		super(handler, x, y, Creature.DEFAULT_WIDTH, Creature.DEFAULT_HEIGHT);
@@ -43,7 +42,7 @@ public class Ghost1 extends Creature {
 		int hor=(int) super.x;
 		int ver=(int) super.y;
 		int w=Tile.TILEWIDTH;
-		System.out.println("Up: " + up + "Down: " + down + "Right: "+right +"Left: "+left);
+		//System.out.println("Up: " + up + "Down: " + down + "Right: "+right +"Left: "+left);
 		if(up) {
 			if(World.World.tiles[hor/w][(ver+29)/w-1]==0) {
 				yMove-=speed;
@@ -117,7 +116,7 @@ public class Ghost1 extends Creature {
 				}
 			}
 		}
-		System.out.println(World.World.tiles[(hor+29)/w-1][ver/w]);
+		//System.out.println(World.World.tiles[(hor+29)/w-1][ver/w]);
 		if(left) {
 			if(World.World.tiles[(hor+29)/w-1][ver/w]==0) {
 				xMove-=speed;

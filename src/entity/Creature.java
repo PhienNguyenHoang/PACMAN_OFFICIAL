@@ -84,8 +84,12 @@ public abstract class Creature extends Entity {
 	public void setyMove(float yMove) {
 		this.yMove = yMove;
 	}
-
-
+	public int getX() {
+		return (int) x;
+	}
+	public int getY() {
+		return (int) y;
+	}
 
 	
 	

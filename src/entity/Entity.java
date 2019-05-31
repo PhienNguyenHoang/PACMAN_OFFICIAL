@@ -21,14 +21,8 @@ public  abstract class Entity {
 		bounds = new Rectangle(0, 0, width, height);
 		this.handler = handler;
 	}
-	public float getX() {
-		return x;
-	}
 	public void setX(float x) {
 		this.x = x;
-	}
-	public float getY() {
-		return y;
 	}
 	public void setY(float y) {
 		this.y = y;

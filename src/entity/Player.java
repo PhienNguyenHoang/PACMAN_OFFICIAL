@@ -70,6 +70,5 @@ public class Player extends Creature {
 		}
 		return pac_right.getCurrentFrame();
 	}
-
 	
 }
