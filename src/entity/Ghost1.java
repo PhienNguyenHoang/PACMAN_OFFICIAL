@@ -20,8 +20,8 @@ public class Ghost1 extends Creature {
 		
 		bounds.x=0;
 		bounds.y=0;
-		bounds.width=30;
-		bounds.height=30;
+		bounds.width=25;
+		bounds.height=25;
 		
 		ghost=new Animation(500,Assets.blinky);
 		
@@ -32,8 +32,11 @@ public class Ghost1 extends Creature {
 	public void tick() {
 		// TODO Auto-generated method stub
 		ghost.tick();
+		
 		gMove();
-		//move();
+		
+		move();
+		
 		
 		
 	}

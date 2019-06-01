@@ -31,21 +31,21 @@ public  abstract class Entity {
 	}
 	
 	
-	public boolean checkEntityCollisions(float xOffset, float yOffset ) {
+	public boolean checkEntityCollisions( ) {
 		for ( Entity e : handler.getWorld().getEntityManager().getEntities()) {
 			
 			if ( e.equals(this)) {
 				continue; 
 			}
-			if( (e.getCollisionBounds(0f,0f)).intersects(getCollisionBounds((int)xOffset, yOffset))) {
+			if( (e.getCollisionBounds()).intersects(getCollisionBounds())) {
 				return true; 
 			}
 		}
 		return false; 
 		
 	}
-	public Rectangle getCollisionBounds(float xOffset, float yOffset ) {
-		return new Rectangle ((int)(x+bounds.x+xOffset),(int)(y+bounds.y+yOffset), bounds.width, bounds.height);
+	public Rectangle getCollisionBounds() {
+		return new Rectangle ((int)(x+bounds.x),(int)(y+bounds.y), bounds.width, bounds.height);
 	}
 	
 	public void eat (int amt) {

@@ -15,16 +15,14 @@ public class EntityManager {
 	
 	public static Player player;
 	
-	
-	
 	private ArrayList<Entity> entities;
 	
 
 	public EntityManager(HandleClass handler,Player player) {
 		this.handler= handler; 
-		
+		this.player= player;
 		entities= new ArrayList<Entity>();
-		addEntity();
+		addEntity1();
 		addEntity(player);
 	
 	}
@@ -59,7 +57,7 @@ public class EntityManager {
 		
 	}
 	
-	public void addEntity() {
+	public void addEntity1() {
 		//ADD COIN
 		
 				addEntity(new Coin (handler,30*2, 30));
@@ -373,7 +371,9 @@ public class EntityManager {
 			//ADD GHOST
 				
 				addEntity(new Ghost1(handler, 30*14, 30*18)); 
+				addEntity(new Ghost1 (handler, 30, 30*5));
 				addEntity(new Ghost2(handler, 30*14, 30*19));
+				addEntity(new Ghost2 (handler, 30, 30*4));
 				
 				
 		
@@ -390,6 +390,14 @@ public class EntityManager {
 	}
 
 	
+
+	public static Player getPlayer() {
+		return player;
+	}
+
+	public static void setPlayer(Player player) {
+		EntityManager.player = player;
+	}
 
 	public ArrayList<Entity> getEntities() {
 		return entities;

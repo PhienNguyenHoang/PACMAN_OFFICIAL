@@ -14,8 +14,8 @@ public class Diamond extends StaticEntity {
 		//set boundary
 		bounds.x = 0;
 		bounds.y = 0;
-		bounds.width = 28;
-		bounds.height = 28;
+		bounds.width = 25;
+		bounds.height = 25;
 		
 	}
 	

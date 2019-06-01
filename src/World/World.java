@@ -8,7 +8,7 @@ import World.Utils;
 
 import entity.EntityManager;
 import entity.Ghost1;
-import entity.Ghost2;
+//import entity.Ghost2;
 import entity.Player;
 import entitystatic.Coin;
 import entitystatic.Diamond;
@@ -19,8 +19,10 @@ import tiles.Tile;
 public class World {
 	private int width,height;
 	private HandleClass handler; 
+	
+	private int spawnX, spawnY; 
 	public static int [][] tiles;
-	private int spawnX, spawnY;
+
 	private EntityManager entityManager;
 	
 	
@@ -29,6 +31,8 @@ public class World {
 	
 	public World(HandleClass handler, String path) {
 		
+		this.handler = handler; 
+		
 		//Initialize entityManager; 
 		entityManager = new EntityManager(handler, new Player(handler,30,30));
 				
@@ -36,7 +40,7 @@ public class World {
 		//ADD COIN
 		
 		
-		entityManager.addEntity(new Coin (handler,30*2, 30));
+		/*entityManager.addEntity(new Coin (handler,30*2, 30));
 		entityManager.addEntity(new Coin (handler,30*3, 30));
 		entityManager.addEntity(new Coin (handler,30*4, 30));
 		entityManager.addEntity(new Coin (handler,30*5, 30));
@@ -345,22 +349,23 @@ public class World {
 		entityManager.addEntity(new Coin (handler,30*28, 30*18));
 		
 		
-		
+		*/
 		
 		loadWorld(path);
 		
 		
 		//ADD PLAYER
-		entityManager.addEntity(new Player(handler, 30,30));
+		//entityManager.addEntity(new Player(handler, 30,30));
 	
-		/*entityManager.getPlayer().setX((int)spawnX);
-		//entityManager.getPlayer().setY((int)spawnY);*/
+		//entityManager. getPlayer().setX((int)spawnX);
+		
+		//entityManager.getPlayer().setY((int)spawnY);
 	
 		
 
-		//ADD GHOST
-		entityManager.addEntity(new Ghost1(handler, 30*27, 30*17));
-		entityManager.addEntity(new Ghost2(handler, 30*5, 30*6));
+		 //ADD GHOST
+		//entityManager.addEntity(new Ghost1(handler, 30*27, 30*17));
+		//entityManager.addEntity(new Ghost2(handler, 30*5, 30*6));
 		
 	}
 	

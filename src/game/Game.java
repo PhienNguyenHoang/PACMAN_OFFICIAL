@@ -145,8 +145,6 @@ public class Game implements Runnable {
 		}
 	}
 	
-
- 
 	 public int getScore() {
 	    return score;
 	 }
@@ -169,5 +167,9 @@ public class Game implements Runnable {
 	
 	public int getHeight() {
 		return height;
+	}
+	public Graphics getG() {
+		// TODO Auto-generated method stub
+		return g;
 	}
 }

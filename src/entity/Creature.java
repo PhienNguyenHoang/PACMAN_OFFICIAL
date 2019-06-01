@@ -22,17 +22,15 @@ public abstract class Creature extends Entity {
 		
 	}
 	public void move() {
-		if(checkEntityCollisions(xMove,0)) {
+	
 			moveX();
-		}
-		
-		if(checkEntityCollisions(0,yMove)) {
 			moveY();
-		}
+		
 		
 	}
 	
 	public void moveX(){
+		
 		if(xMove > 0){//Moving right
 			int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
 			

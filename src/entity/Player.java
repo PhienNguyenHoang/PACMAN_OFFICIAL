@@ -17,19 +17,22 @@ import game.HandleClass;
 
 public class Player extends Creature {
 	
-	private HandleClass handler;
+	
 	private Animation pac_left,pac_right;
-	public static int pX,pY;
+	//public static int pX,pY;
 	private GameState gameState;
 	
 	public Player(HandleClass handler, float x, float y) {
-		super(handler, x, y,Creature.DEFAULT_WIDTH,Creature.DEFAULT_HEIGHT);
-		this.handler = handler;
-
 		
+		//super 
+		super(handler, x, y,Creature.DEFAULT_WIDTH,Creature.DEFAULT_HEIGHT);
+		
+
+		//Animation
 		pac_left= new Animation(300,Assets.pac_left);
 		pac_right= new Animation(300,Assets.pac_right);
 		
+		//Bounds
 		bounds.x = 0;
 		bounds.y = 0;
 		bounds.width = 25;
@@ -38,10 +41,16 @@ public class Player extends Creature {
 
 	@Override
 	public void tick() {
+		
+		//ANIMATION
 		pac_left.tick();
 		pac_right.tick();
+		
+		//MOVEMENT
 		getInput();
 		move();
+		
+		//eat
 		checkAttack();
         checkScore();;
 		
@@ -50,9 +59,9 @@ public class Player extends Creature {
 	
 	public void checkAttack() {
 	        
-	        Rectangle cb = getCollisionBounds(0,0);   
+	        Rectangle cb = getCollisionBounds();   
 	        Rectangle ar = new Rectangle();    
-	        int arSize = 10;             
+	        int arSize = 30;             
 	        ar.width = arSize;                          
 	        ar.height = arSize;     
 
@@ -79,14 +88,15 @@ public class Player extends Creature {
 	            if (e.equals(this)) {
 	                continue;
 	            }
-	            if (e.getCollisionBounds(0,0).intersects(ar)) {
-	                if(e instanceof Ghost1 || e instanceof Ghost2){
+	            if (e.getCollisionBounds().intersects(ar)) {
+	                if(e instanceof Ghost1 ||e instanceof Ghost2){
+	                	this.eat(3);
 	                    die();
-	                    
+	                    handler.getGame().getG().drawString("You are Killed. Your Score : " + handler.getGame().getScore(), 200, 400);
 	                    return;
 	                }
-	                e.eat(10);
-	                handler.getGame().setScore(1);
+	                e.eat(1);
+	                handler.getGame().setScore(10);
 	                return;
 	            }
 
@@ -94,7 +104,7 @@ public class Player extends Creature {
 	    }
 	    
 	 
-	  public boolean winner;
+	  //public boolean winner;
 	    
 	  private void checkScore(){
 	        
@@ -106,9 +116,6 @@ public class Player extends Creature {
 	        }
 	           
 	     }
-	    
-	    
-	    
 	   
 
 	    private BufferStrategy br;
@@ -119,7 +126,8 @@ public class Player extends Creature {
 	    }
 	    
 	    public void getInput() {
-		xMove=0;
+		
+	    xMove=0;
 		yMove=0;
 		
 		if(handler.getKeyManager().up) {
@@ -148,7 +156,7 @@ public class Player extends Creature {
 		g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);
 		
 		g.setFont(new Font("Sergiue", Font.BOLD, 25));
-       g.drawString("Score : " + handler.getGame().getScore()  /*handler.getGame().getCanvas().getWidth() - 150 , 50*/, 30*26,30);
+		g.drawString("Score : " + handler.getGame().getScore()  /*handler.getGame().getCanvas().getWidth() - 150 , 50*/, 30*26,30);
 	}
 	private BufferedImage getCurrentAnimationFrame() {
 		if(xMove<0) {

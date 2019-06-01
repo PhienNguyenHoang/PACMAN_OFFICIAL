@@ -14,7 +14,7 @@ import java.util.Queue;
 import java.util.Random;
 
 public class Ghost2 extends Creature {
-	public Animation ghost1;
+	public Animation ghost2;
 	public int [][] visited=new int[30][20];
 	public boolean up=true,down,right,left,chase=false;
 
@@ -29,15 +29,15 @@ public class Ghost2 extends Creature {
 		bounds.width=25;
 		bounds.height=25;
 		
-		ghost1=new Animation(500,Assets.inky);
+		ghost2=new Animation(500,Assets.inky);
 	}
 	
 	
 
 	@Override
 	public void tick() {
-		ghost1.tick();
-		chase=BFS();
+		ghost2.tick();
+		chase= BFS();
 		System.out.print("Chase: " + chase);
 		if(chase==false) {
 			gMove();
@@ -46,7 +46,6 @@ public class Ghost2 extends Creature {
 			System.out.println("Up: " + up + "Down: " + down + "Right: "+right +"Left: "+left);
 			chasing(findPath());
 		}
-		
 		
 		move();
 	}
@@ -57,7 +56,7 @@ public class Ghost2 extends Creature {
 	}
 	private BufferedImage getCurrentAnimationFrame() {
 		// TODO Auto-generated method stub
-		return ghost1.getCurrentFrame();
+		return ghost2.getCurrentFrame();
 	}
 	class Coordinate {
 		public int x,y;
@@ -73,7 +72,7 @@ public class Ghost2 extends Creature {
 		int hor=(int) super.x;
 		int ver=(int) super.y;
 		int w=Tile.TILEWIDTH;
-//		System.out.println(EntityManager.player.getX()+ " "+ EntityManager.player.getY() );
+	//	System.out.println(EntityManager.player.getX()+ " "+ EntityManager.player.getY() );
 //		System.out.println(super.x +" "+ super.y);
 		//System.out.println("Up: " + up + "Down: " + down + "Right: "+right +"Left: "+left);
 		if(up) {
@@ -224,8 +223,8 @@ public class Ghost2 extends Creature {
 		
 	}
 	private boolean BFS(){
-		xMove=0;
-		yMove=0;
+		xMove=0f;
+		yMove=0f;
 
 		for(int i=0;i<17;i++) {
 			for(int j=0;j<11;j++) {
@@ -260,7 +259,7 @@ public class Ghost2 extends Creature {
 		queue.add(new Coordinate(x, y));
 
 		visited[x][y]=1;
-		System.out.print("---------------------------------"+ EntityManager.player.getX() +" "+ EntityManager.player.getY());
+		//System.out.print("---------------------------------"+ EntityManager.player.getX() +" "+ EntityManager.player.getY());
 		while (queue.size() != 0) 
         { 
 			
@@ -391,6 +390,14 @@ public class Ghost2 extends Creature {
 		yMove+=y*speed;
 //		gMove();
 		
+		
+	}
+
+
+
+	@Override
+	public void die() {
+		// TODO Auto-generated method stub
 		
 	}
 
