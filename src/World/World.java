@@ -29,8 +29,8 @@ public class World {
 	
 	public World(HandleClass handler, String path) {
 		
-		//Add PLAYER
-		entityManager = new EntityManager(handler, new Player (handler,30,30));
+		//Initialize entityManager; 
+		entityManager = new EntityManager(handler, new Player(handler,30,30));
 				
 		
 		//ADD COIN
@@ -346,18 +346,22 @@ public class World {
 		
 		
 		
+		
+		loadWorld(path);
+		
+		
+		//ADD PLAYER
+		entityManager.addEntity(new Player(handler, 30,30));
+	
+		/*entityManager.getPlayer().setX((int)spawnX);
+		//entityManager.getPlayer().setY((int)spawnY);*/
+	
+		
+
 		//ADD GHOST
 		entityManager.addEntity(new Ghost1(handler, 30*27, 30*17));
 		entityManager.addEntity(new Ghost2(handler, 30*5, 30*6));
 		
-
-		
-		
-		loadWorld(path);
-	
-		entityManager.getPlayer().setX((int)spawnX);
-		entityManager.getPlayer().setY((int)spawnY);
-	
 	}
 	
 	
@@ -399,6 +403,7 @@ public class World {
 	
 	
 	private void loadWorld(String path) {
+		
 		//load words from file world1.txt
 		String files =Utils. loadFileAsString(path);
 		String[] tokens = files.split("\\s+");

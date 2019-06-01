@@ -1,10 +1,12 @@
 package game;
 
+import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import entity.Player;
 import input.KeyManager;
+import input.MouseManager;
 import Display.Display;
 import Graphics.Assets;
 import Graphics.CropImage;
@@ -18,19 +20,26 @@ public class Game implements Runnable {
 	public String title;
 	private BufferStrategy bs;
 	private Graphics g;
-	private BufferedImage image;
-	private CropImage x;
 	
+
 	private boolean running = false;
 	private Thread thread;
-	private Player player;
+
+	
+	
+	//worldNumber and Score
+    private int worldNumber = 1;
+    private int score;
+    
 	
 	//State
 	private State gameState;
 	//Input
 	private KeyManager keyManager;
+	private MouseManager mouseManager;
 	//Handler
 	private HandleClass handler;
+
 	
 	
 	public Game(String title, int width, int height) {
@@ -43,6 +52,13 @@ public class Game implements Runnable {
 	private void init() {
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
+		display.getFrame().addMouseListener(mouseManager);
+        display.getFrame().addMouseMotionListener(mouseManager);
+        display.getCanvas().addMouseListener(mouseManager);
+        display.getCanvas().addMouseMotionListener(mouseManager);
+        
+     
+        
 		Assets.init();
 		handler = new HandleClass(this);
 		gameState = new GameState(handler);
@@ -80,7 +96,7 @@ public class Game implements Runnable {
 	public void run() {
 		init();
 		
-		int fps = 10; 
+		int fps = 60; 
 		double timePerTick= 1000000000/ fps; 
 		double delta=0; 
 		long now; 
@@ -111,11 +127,6 @@ public class Game implements Runnable {
 		stop();
 	}
 	
-	
-	public KeyManager getKeyManager() {
-		return keyManager;
-	}
-	
 	public synchronized void start() {
 		if(running)
 			return;
@@ -133,6 +144,24 @@ public class Game implements Runnable {
 			e.printStackTrace();
 		}
 	}
+	
+
+ 
+	 public int getScore() {
+	    return score;
+	 }
+	 public void setScore(int score) {
+	    this.score = this.score + score;
+	 }
+	    
+	
+	public Canvas getCanvas(){
+        return display.getCanvas();
+    }
+	public KeyManager getKeyManager() {
+		return keyManager;
+	}
+
 	
 	public int getWidth() {
 		return width;

@@ -14,8 +14,14 @@ public class Diamond extends StaticEntity {
 		//set boundary
 		bounds.x = 0;
 		bounds.y = 0;
-		bounds.width = 22;
-		bounds.height = 22;
+		bounds.width = 28;
+		bounds.height = 28;
+		
+	}
+	
+	
+	@Override
+	public void die() {
 		
 	}
 	

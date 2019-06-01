@@ -11,6 +11,7 @@ import game.HandleClass;
 import tiles.Tile;
 
 public class Ghost1 extends Creature {
+	
 	public Animation ghost;
 	public boolean up=true,down,left,right;
 	public Ghost1(HandleClass handler, float x, float y) {
@@ -19,8 +20,8 @@ public class Ghost1 extends Creature {
 		
 		bounds.x=0;
 		bounds.y=0;
-		bounds.width=27;
-		bounds.height=27;
+		bounds.width=30;
+		bounds.height=30;
 		
 		ghost=new Animation(500,Assets.blinky);
 		
@@ -32,7 +33,7 @@ public class Ghost1 extends Creature {
 		// TODO Auto-generated method stub
 		ghost.tick();
 		gMove();
-		move();
+		//move();
 		
 		
 	}
@@ -198,6 +199,8 @@ public class Ghost1 extends Creature {
 		g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);
 		
 	}
+	
+	public void die() {}
 
 	private BufferedImage getCurrentAnimationFrame() {
 		// TODO Auto-generated method stub
