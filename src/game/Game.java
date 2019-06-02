@@ -199,7 +199,7 @@ public class Game implements Runnable {
 
 	private void setGameState(GameState gameState2) {
 		// TODO Auto-generated method stub
-		
+		this.gameState= gameState2; 
 	}
 
 }
