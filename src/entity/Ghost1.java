@@ -14,14 +14,15 @@ public class Ghost1 extends Creature {
 	
 	public Animation ghost;
 	public boolean up=true,down,left,right;
+	
 	public Ghost1(HandleClass handler, float x, float y) {
 
 		super(handler, x, y, Creature.DEFAULT_WIDTH, Creature.DEFAULT_HEIGHT);
 		
-		bounds.x=0;
+		/*bounds.x=0;
 		bounds.y=0;
 		bounds.width=25;
-		bounds.height=25;
+		bounds.height=25;*/
 		
 		ghost=new Animation(500,Assets.blinky);
 		
@@ -36,7 +37,6 @@ public class Ghost1 extends Creature {
 		gMove();
 		
 		move();
-		
 		
 		
 	}
@@ -206,6 +206,9 @@ public class Ghost1 extends Creature {
 	public void die() {}
 
 	private BufferedImage getCurrentAnimationFrame() {
+		
+		
+		
 		// TODO Auto-generated method stub
 		return ghost.getCurrentFrame();
 	}

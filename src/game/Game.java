@@ -12,28 +12,33 @@ import Graphics.Assets;
 import Graphics.CropImage;
 import Graphics.ImageLoader;
 import State.GameState;
+//import State.MainMenu;
 import State.State;
 
 public class Game implements Runnable {
+	
+	//
 	private Display display;
 	public int width, height;
 	public String title;
 	private BufferStrategy bs;
 	private Graphics g;
 	
-
+	//
 	private boolean running = false;
 	private Thread thread;
 
-	
 	
 	//worldNumber and Score
     private int worldNumber = 1;
     private int score;
     
+    
 	
 	//State
 	private State gameState;
+	//private State menuState;
+	
 	//Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
@@ -56,12 +61,11 @@ public class Game implements Runnable {
         display.getFrame().addMouseMotionListener(mouseManager);
         display.getCanvas().addMouseListener(mouseManager);
         display.getCanvas().addMouseMotionListener(mouseManager);
-        
-     
-        
+       
 		Assets.init();
 		handler = new HandleClass(this);
 		gameState = new GameState(handler);
+		//menuState= new MainMenu(handler);
 		State.setState(gameState);
 		
 	}
@@ -151,6 +155,7 @@ public class Game implements Runnable {
 	 public void setScore(int score) {
 	    this.score = this.score + score;
 	 }
+	
 	    
 	
 	public Canvas getCanvas(){
@@ -160,6 +165,10 @@ public class Game implements Runnable {
 		return keyManager;
 	}
 
+	
+	public MouseManager getMouseManager() {
+		return mouseManager;
+	}
 	
 	public int getWidth() {
 		return width;
@@ -172,4 +181,12 @@ public class Game implements Runnable {
 		// TODO Auto-generated method stub
 		return g;
 	}
+	/*public State getMenuState() {
+		// TODO Auto-generated method stub
+		return this.menuState;
+	}*/
+	/*public State getMenuState() {
+		// TODO Auto-generated method stub
+		return menuState;
+	}*/
 }

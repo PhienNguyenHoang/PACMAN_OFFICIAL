@@ -8,7 +8,7 @@ import game.HandleClass;
 
 public  abstract class Entity {
 	
-	public static final int DEFAULT_HEALTH=1;
+	public static final int DEFAULT_HEALTH=3;
 	protected int health; 
 	protected HandleClass handler;
 	protected float x, y;
@@ -26,7 +26,6 @@ public  abstract class Entity {
 		this.width=width;
 		this.height=height;
 		bounds = new Rectangle(0, 0, width, height);
-		this.handler = handler;
 		health= DEFAULT_HEALTH;
 	}
 	
@@ -48,7 +47,7 @@ public  abstract class Entity {
 		return new Rectangle ((int)(x+bounds.x),(int)(y+bounds.y), bounds.width, bounds.height);
 	}
 	
-	public void eat (int amt) {
+	public void beEaten (int amt) {
 		health=-amt;
 		if (health<=0) {
 			active= false; 
@@ -56,8 +55,8 @@ public  abstract class Entity {
 		}
 	}
 	
-	public abstract void die();
 	
+	public abstract void die() ;
 
 
 	public void setX(float x) {

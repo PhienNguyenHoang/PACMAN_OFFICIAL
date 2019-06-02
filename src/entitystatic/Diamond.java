@@ -12,16 +12,17 @@ public class Diamond extends StaticEntity {
 		super(handler, x, y, Creature.DEFAULT_WIDTH, Creature.DEFAULT_HEIGHT);
 		
 		//set boundary
-		bounds.x = 0;
+		/*bounds.x = 0;
 		bounds.y = 0;
 		bounds.width = 25;
-		bounds.height = 25;
+		bounds.height = 25;*/
 		
 	}
 	
 	
 	@Override
 	public void die() {
+		
 		
 	}
 	

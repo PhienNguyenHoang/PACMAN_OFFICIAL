@@ -23,9 +23,9 @@ public class Coin extends StaticEntity  {
 	}
 	
 	
-	@Override
+	@Override 
 	public void die() {
-		
+	
 	}
 	
 	@Override 
