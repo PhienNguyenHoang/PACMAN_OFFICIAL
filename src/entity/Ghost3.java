@@ -59,7 +59,7 @@ public class Ghost3 extends Creature {
 	
 	private BufferedImage getCurrentAnimationFrame() {
 		// TODO Auto-generated method stub
-		return ghost2.getCurrentFrame();
+		return ghost3.getCurrentFrame();
 	}
 	
 	class Coordinate {
