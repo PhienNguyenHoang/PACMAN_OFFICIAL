@@ -20,10 +20,16 @@ public class Player extends Creature {
 	
 	
 	private Animation pac_left,pac_right;
+
 	
 	
 	public boolean dead=false; 
 	public boolean winner=true; 
+
+	private GameState gameState;
+	public boolean up=true,down,right,left;
+	
+
 	
 	public Player(HandleClass handler, float x, float y) {
 		

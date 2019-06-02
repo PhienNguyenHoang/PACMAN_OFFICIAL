@@ -5,8 +5,11 @@ import java.awt.image.BufferedImage;
 public class Assets {
 	private static final int width=75, height=75;
 	
-	public static BufferedImage[] pac_left,pac_right,blinky,pinky,inky,clyde;
-	public static BufferedImage pacman,coin,diamond,background,wall, mainpic, start, ghost, back;
+
+	
+	public static BufferedImage pacman,coin,diamond,background,wall,rule;
+	public static BufferedImage[] pac_left,pac_right,blinky,pinky,inky,clyde,button;
+	
 	
 	public static void init() {
 		
@@ -37,14 +40,14 @@ public class Assets {
 		pac_right=new BufferedImage[2];
 		pac_right[0] = ImageLoader.loadImage("/Images/pac_right.png");
 		pac_right[1] = ImageLoader.loadImage("/Images/pac_right1.png");
+
 		diamond=ImageLoader.loadImage("/Images/diamond.png");
-		//mainpic = ImageLoader.loadImage("/Images/mainpic.png");
-		//start= ImageLoader.loadImage("/Images/start.png");
-		//back= ImageLoader.loadImage("/Images/navyback.png");
+
+		button=new BufferedImage[2];
+		button[0] = ImageLoader.loadImage("/Images/button.png");
+		button[1] = ImageLoader.loadImage("/Images/button1.png");
 		
-		
-		
-		
+		rule=ImageLoader.loadImage("/Images/RULES.png");
 	}
 	
 	

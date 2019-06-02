@@ -11,8 +11,8 @@ import Display.Display;
 import Graphics.Assets;
 import Graphics.CropImage;
 import Graphics.ImageLoader;
-import State.GameState;
-//import State.MainMenu;
+import State.GameState; 
+import State.MainMenu;
 import State.State;
 
 public class Game implements Runnable {
@@ -36,14 +36,16 @@ public class Game implements Runnable {
     
 	
 	//State
+
 	private State gameState;
-	//private State menuState;
-	
+	private State menuState;
 	//Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
 	//Handler
 	private HandleClass handler;
+	
+	
 
 	
 	
@@ -52,6 +54,7 @@ public class Game implements Runnable {
 		this.height = height;
 		this.title = title; 
 		keyManager = new KeyManager();
+		mouseManager=new MouseManager();
 		
 	}
 	private void init() {
@@ -64,9 +67,15 @@ public class Game implements Runnable {
        
 		Assets.init();
 		handler = new HandleClass(this);
-		gameState = new GameState(handler);
-		//menuState= new MainMenu(handler);
-		State.setState(gameState);
+		
+		setGameState(new GameState(handler));
+
+		menuState= new MainMenu(handler);
+		State.setState(getGameState());
+
+		menuState = new MainMenu(handler);
+		State.setState(menuState);
+
 		
 	}
 	
@@ -164,12 +173,10 @@ public class Game implements Runnable {
 	public KeyManager getKeyManager() {
 		return keyManager;
 	}
-
-	
 	public MouseManager getMouseManager() {
 		return mouseManager;
 	}
-	
+
 	public int getWidth() {
 		return width;
 	}
@@ -181,12 +188,18 @@ public class Game implements Runnable {
 		// TODO Auto-generated method stub
 		return g;
 	}
-	/*public State getMenuState() {
+	public State getMenuState() {
 		// TODO Auto-generated method stub
 		return this.menuState;
-	}*/
-	/*public State getMenuState() {
+	}
+	
+	public State getGameState() {
+		return gameState;
+	}
+
+	private void setGameState(GameState gameState2) {
 		// TODO Auto-generated method stub
-		return menuState;
-	}*/
+		
+	}
+
 }

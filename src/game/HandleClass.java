@@ -3,6 +3,7 @@ package game;
 import World.World;
 import game.Game;
 import input.KeyManager;
+import input.MouseManager;
 
 public class HandleClass {
 	private Game game;
@@ -32,5 +33,8 @@ public class HandleClass {
 	}
 	public KeyManager getKeyManager() {
 		return game.getKeyManager();
+	}
+	public MouseManager getMouseManager() {
+		return game.getMouseManager();
 	}
 }
