@@ -5,8 +5,8 @@ import java.awt.image.BufferedImage;
 public class Assets {
 	private static final int width=75, height=75;
 	
-	public static BufferedImage[] pac_left,pac_right,blinky,pinky,inky,clyde;
-	public static BufferedImage pacman,coin,diamond,background,wall;
+	public static BufferedImage[] pac_left,pac_right,blinky,pinky,inky,clyde,button;
+	public static BufferedImage pacman,coin,diamond,background,wall,rule;
 	
 	public static void init() {
 		CropImage sheet=new CropImage(ImageLoader.loadImage("/Images/final.png"));
@@ -32,7 +32,11 @@ public class Assets {
 		pac_right=new BufferedImage[2];
 		pac_right[0] = ImageLoader.loadImage("/Images/pac_right.png");
 		pac_right[1] = ImageLoader.loadImage("/Images/pac_right1.png");
+		button=new BufferedImage[2];
+		button[0] = ImageLoader.loadImage("/Images/button.png");
+		button[1] = ImageLoader.loadImage("/Images/button1.png");
 		diamond=sheet.crop(width*2, height*3, width, height);
+		rule=ImageLoader.loadImage("/Images/RULES.png");
 	}
 	
 	

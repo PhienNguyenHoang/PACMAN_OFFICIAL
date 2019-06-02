@@ -12,6 +12,7 @@ import Graphics.Assets;
 import Graphics.CropImage;
 import Graphics.ImageLoader;
 import State.GameState;
+import State.MainMenu;
 import State.State;
 
 public class Game implements Runnable {
@@ -33,12 +34,15 @@ public class Game implements Runnable {
     
 	
 	//State
-	private State gameState;
+    
 	//Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
 	//Handler
 	private HandleClass handler;
+	
+	public State gameState;
+	public State menuState;
 
 	
 	
@@ -47,6 +51,7 @@ public class Game implements Runnable {
 		this.height = height;
 		this.title = title; 
 		keyManager = new KeyManager();
+		mouseManager=new MouseManager();
 		
 	}
 	private void init() {
@@ -61,8 +66,10 @@ public class Game implements Runnable {
         
 		Assets.init();
 		handler = new HandleClass(this);
+		
 		gameState = new GameState(handler);
-		State.setState(gameState);
+		menuState = new MainMenu(handler);
+		State.setState(menuState);
 		
 	}
 	
@@ -158,6 +165,9 @@ public class Game implements Runnable {
     }
 	public KeyManager getKeyManager() {
 		return keyManager;
+	}
+	public MouseManager getMouseManager() {
+		return mouseManager;
 	}
 
 	

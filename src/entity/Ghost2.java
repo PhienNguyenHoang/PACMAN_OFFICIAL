@@ -234,8 +234,7 @@ public class Ghost2 extends Creature {
 		}
 		Queue<Coordinate> queue=new LinkedList<>();
 		int x = 0, y = 0;
-//		x = (int) super.x / 20;
-//		y = (int) super.y / 20;
+
 		System.out.println("x before: " + super.x + "; y before " + super.y);
 		if (up) {
 			x = (int)super.x / Tile.TILEHEIGHT;
@@ -296,11 +295,11 @@ public class Ghost2 extends Creature {
             }
             
             
-            if(s.x < 16 && World.tiles[s.x+1][s.y]==0 && visited[s.x+1][s.y] == 0) {
+            if(s.x < 29 && World.tiles[s.x+1][s.y]==0 && visited[s.x+1][s.y] == 0) {
             	queue.add(new Coordinate(s.x+1,s.y) );
             	visited[s.x+1][s.y]=visited[s.x][s.y]+1;
             }
-            if(s.y < 10 && World.tiles[s.x][s.y+1]==0 && visited[s.x][s.y + 1] == 0) {
+            if(s.y < 19 && World.tiles[s.x][s.y+1]==0 && visited[s.x][s.y + 1] == 0) {
             	queue.add(new Coordinate(s.x,s.y+1) );
             	visited[s.x][s.y+1]=visited[s.x][s.y]+1;
             }
