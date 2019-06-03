@@ -2,6 +2,8 @@ package entity;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Random;
 
 import Graphics.Animation;
@@ -228,11 +230,108 @@ public class Ghost3 extends Creature {
 	}
 	
 	public boolean BFS() {
+		xMove=0f;
+		yMove=0f;
+
+		for(int i=0;i<17;i++) {
+			for(int j=0;j<11;j++) {
+				visited[i][j]=0;
+				
+			}
+		}
+		Queue<Coordinate> queue=new LinkedList<>();
+		int x = 0, y = 0;
+
+		System.out.println("x before: " + super.x + "; y before " + super.y);
+		if (up) {
+			x = (int)super.x / Tile.TILEHEIGHT;
+			y = (int)(super.y + Tile.TILEHEIGHT -  5) / Tile.TILEHEIGHT;
+		}
+		else if (down) {
+			x = (int)super.x / Tile.TILEHEIGHT;
+			y = (int)(super.y) / Tile.TILEHEIGHT;
+		}
+		else if (left) {
+			x = (int)(super.x + Tile.TILEHEIGHT - 5) /Tile.TILEHEIGHT;
+			y = (int)(super.y) / Tile.TILEHEIGHT;
+		}
+		else if (right) {
+			x = (int)(super.x + 5) / Tile.TILEHEIGHT;
+			y = (int)(super.y) / Tile.TILEHEIGHT;
+		}
+		this.xBefore = x;
+		this.yBefore = y;
+		System.out.println("x before: " + this.xBefore + "; y before " + this.yBefore);
+		queue.add(new Coordinate(x, y));
+
+		visited[x][y]=1;
+		//System.out.print("---------------------------------"+ EntityManager.player.getX() +" "+ EntityManager.player.getY());
+		while (queue.size() != 0) 
+        { 
+			
+            // Dequeue a vertex from queue and print it 
+            Coordinate s = queue.poll();
+          
+            if(visited[s.x][s.y]>=10) {
+//            	for(int i=0;i<20;i++) {
+//        			for(int j=0;j<30;j++) {
+//        				System.out.print(visited[j][i] + " ");    				
+//        			}
+//        			System.out.println();
+//        		}
+//            	
+            	chase=false;
+            	return false;
+            }
+            else if(s.x==(int)EntityManager.player.getX() / Tile.TILEHEIGHT && s.y == (int)EntityManager.player.getY() / Tile.TILEHEIGHT) {
+//            	for(int i=0;i<20;i++) {
+//        			for(int j=0;j<30;j++) {
+//        				System.out.print(visited[j][i] + " ");    				
+//        			}
+//        			System.out.println();
+//        		}
+//            	System.out.println("true true true");
+            	chase=true;
+            	return true;
+            }
+//            System.out.print(s+" "); 
+//            System.out.print(" x : " +s.x +" y : "+s.y);
+            if(s.y > 0 && World.tiles[s.x][s.y - 1] == 0 && visited[s.x][s.y - 1] == 0) {
+            	queue.add(new Coordinate(s.x,s.y-1));
+            	visited[s.x][s.y - 1] = visited[s.x][s.y]+1;
+            }
+            
+            
+            if(s.x < 29 && World.tiles[s.x+1][s.y]==0 && visited[s.x+1][s.y] == 0) {
+            	queue.add(new Coordinate(s.x+1,s.y) );
+            	visited[s.x+1][s.y]=visited[s.x][s.y]+1;
+            }
+            if(s.y < 19 && World.tiles[s.x][s.y+1]==0 && visited[s.x][s.y + 1] == 0) {
+            	queue.add(new Coordinate(s.x,s.y+1) );
+            	visited[s.x][s.y+1]=visited[s.x][s.y]+1;
+            }
+            if(s.x > 1 && World.tiles[s.x-1][s.y ] == 0 && visited[s.x-1][s.y] == 0) {
+            	queue.add(new Coordinate(s.x-1,s.y));
+            	visited[s.x-1][s.y] = visited[s.x][s.y]+1;
+            }
+    		
+    		}
+		
+			
+		
 		return false;
 	}
 
 	public Coordinate findPath() {
-		int q = visited[(int) EntityManager.player.getX() /Tile.TILEHEIGHT][(int) EntityManager.player.getY() /Tile.TILEHEIGHT];
+		int q=0;
+		if(handler.getKeyManager().up)
+			q= visited[(int) EntityManager.player.getX() /Tile.TILEHEIGHT][(int) EntityManager.player.getY() /Tile.TILEHEIGHT-1];
+		if(handler.getKeyManager().down)
+			q= visited[(int) EntityManager.player.getX() /Tile.TILEHEIGHT][(int) EntityManager.player.getY() /Tile.TILEHEIGHT+1];
+		if(handler.getKeyManager().left)
+			q= visited[(int) EntityManager.player.getX() /Tile.TILEHEIGHT-1][(int) EntityManager.player.getY() /Tile.TILEHEIGHT];
+		if(handler.getKeyManager().right)
+			q= visited[(int) EntityManager.player.getX() /Tile.TILEHEIGHT+1][(int) EntityManager.player.getY() /Tile.TILEHEIGHT];
 //		System.out.println("First q:" + q);
 		int x=(int) EntityManager.player.getX() / Tile.TILEHEIGHT,y=(int) EntityManager.player.getY() / Tile.TILEHEIGHT;
 		while(q>2) {
