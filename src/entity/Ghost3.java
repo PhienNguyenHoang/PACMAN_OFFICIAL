@@ -1,6 +1,7 @@
 package entity;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -19,7 +20,7 @@ public class Ghost3 extends Creature {
 	public boolean up=true,down,right,left,chase=false;
 	private int xBefore;
 	private int yBefore;
-
+	public Player player;
 	
 	public Ghost3(HandleClass handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_WIDTH, Creature.DEFAULT_HEIGHT);
@@ -324,13 +325,13 @@ public class Ghost3 extends Creature {
 
 	public Coordinate findPath() {
 		int q=0;
-		if(handler.getKeyManager().up)
+		if(player.up)
 			q= visited[(int) EntityManager.player.getX() /Tile.TILEHEIGHT][(int) EntityManager.player.getY() /Tile.TILEHEIGHT-1];
-		if(handler.getKeyManager().down)
+		if(player.down)
 			q= visited[(int) EntityManager.player.getX() /Tile.TILEHEIGHT][(int) EntityManager.player.getY() /Tile.TILEHEIGHT+1];
-		if(handler.getKeyManager().left)
+		if(player.left)
 			q= visited[(int) EntityManager.player.getX() /Tile.TILEHEIGHT-1][(int) EntityManager.player.getY() /Tile.TILEHEIGHT];
-		if(handler.getKeyManager().right)
+		if(player.right)
 			q= visited[(int) EntityManager.player.getX() /Tile.TILEHEIGHT+1][(int) EntityManager.player.getY() /Tile.TILEHEIGHT];
 //		System.out.println("First q:" + q);
 		int x=(int) EntityManager.player.getX() / Tile.TILEHEIGHT,y=(int) EntityManager.player.getY() / Tile.TILEHEIGHT;

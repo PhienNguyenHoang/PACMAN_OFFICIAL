@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import Graphics.Animation;
@@ -13,6 +14,7 @@ import State.State;
 import entitystatic.Coin;
 import entitystatic.Diamond;
 import game.HandleClass;
+import input.KeyManager;
 
 
 
@@ -162,15 +164,32 @@ public class Player extends Creature {
 		
 	    	if(handler.getKeyManager().up) {
 			yMove= -speed;
+			up=true;
+			down=false;
+			right=false;
+			left=false;
 	    	}
 	    	if(handler.getKeyManager().down) {
 			yMove= speed;
+			down=true;
+			up=false;
+			right=false;
+			left=false;
 	    	}
 	    	if(handler.getKeyManager().right) {
 			xMove= speed;
+			right=true;
+			up=false;
+			down=false;
+			left=false;
+			
 	    	}
 	    	if(handler.getKeyManager().left) {
 			xMove= -speed;
+			left=true;
+			right=false;
+			up=false;
+			down=false;
 	    	}
 	    	/*if(handler.getKeyManager().escape){
 	         dead = true;
@@ -182,6 +201,19 @@ public class Player extends Creature {
 	public boolean getFrighten() {
 		return frighten; 
 	}
+//	public boolean getDirection(int key) {
+//		if(up)
+//		return up;
+//		else if(key==KeyEvent.VK_S)
+//			return down;
+//		else if(key==KeyEvent.VK_D)
+//			return right;
+//		else if(key==KeyEvent.VK_A)
+//			return left;
+//		
+//		return false;
+//		
+//	}
 	
 
 	@Override
@@ -202,5 +234,6 @@ public class Player extends Creature {
 		
 		return pac_right.getCurrentFrame();
 	}
+	
 	
 }
