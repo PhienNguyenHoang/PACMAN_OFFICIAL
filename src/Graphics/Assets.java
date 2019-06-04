@@ -49,7 +49,6 @@ public class Assets {
 		
 		rule=ImageLoader.loadImage("/Images/RULES.png");
 		rule1=ImageLoader.loadImage("/Images/quynh.png");
-		test=ImageLoader.loadImage("/Images/menubg.gif");
 		gameover=ImageLoader.loadImage("/Images/gameover.png");
 	}
 	

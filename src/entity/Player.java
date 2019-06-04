@@ -114,7 +114,7 @@ public class Player extends Creature {
 	                continue;
 	            }
 	            if (e.getCollisionBounds().intersects(ar)) {
-	                if(e instanceof Ghost1 ||e instanceof Ghost2){
+	                if(e instanceof Ghost1 ||e instanceof Ghost2 || e instanceof Ghost3 || e instanceof Ghost4){
 	                	this.beEaten(1);
 	                	
 	                	handler.getGame().setLives(1);
@@ -123,7 +123,10 @@ public class Player extends Creature {
 	                	if(handler.getGame().getLives()==0) 
 //	                		handler.getGame().setLives(-3);
 	                	 	handler.getState().setState(new EndingState(handler));
-	                	
+//	                	else {
+//	                		handler.getGame().run();
+//	                	}
+//	                	
 	                		
 	                		
 	                	

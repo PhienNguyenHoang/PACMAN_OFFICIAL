@@ -59,7 +59,7 @@ public class EntityManager {
 	
 	public void addEntity1() {
 		//ADD COIN
-		
+				addEntity(new Coin (handler,30, 30));
 				addEntity(new Coin (handler,30*2, 30));
 				addEntity(new Coin (handler,30*3, 30));
 				addEntity(new Coin (handler,30*4, 30));
@@ -373,10 +373,10 @@ public class EntityManager {
 				
 			//ADD GHOST
 				
-				addEntity(new Ghost1(handler, 30*14, 30*18)); 
-				addEntity(new Ghost2(handler, 30*14, 30*19));
-				addEntity(new Ghost2 (handler, 30*7, 30*4));
-//				addEntity(new Ghost3(handler,30*4, 30*6));
+				addEntity(new Ghost4(handler, 30*14, 30*18)); 
+				addEntity(new Ghost3(handler, 30*14, 30*19));
+				addEntity(new Ghost1 (handler, 30*7, 30*4));
+				addEntity(new Ghost2(handler,30*4, 30*6));
 				
 				
 		

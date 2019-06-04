@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
 
-public class Ghost3 extends Creature {
+public class Ghost4 extends Creature {
 	public Animation ghost2;
 	public int [][] visited=new int[30][20];
 	public boolean up=true,down,right,left,chase=false;
@@ -22,14 +22,14 @@ public class Ghost3 extends Creature {
 	private int yBefore;
 
 	
-	public Ghost3(HandleClass handler, float x, float y) {
+	public Ghost4(HandleClass handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_WIDTH, Creature.DEFAULT_HEIGHT);
 		bounds.x = 0;
 		bounds.y = 0;
 		bounds.width=25;
 		bounds.height=25;
 		
-		ghost2=new Animation(500,Assets.clyde);
+		ghost2=new Animation(500,Assets.pinky);
 	}
 	
 	
@@ -226,8 +226,8 @@ public class Ghost3 extends Creature {
 		xMove=0f;
 		yMove=0f;
 
-		for(int i=0;i<17;i++) {
-			for(int j=0;j<11;j++) {
+		for(int i=0;i<30;i++) {
+			for(int j=0;j<20;j++) {
 				visited[i][j]=0;
 				
 			}
@@ -265,7 +265,7 @@ public class Ghost3 extends Creature {
             // Dequeue a vertex from queue and print it 
             Coordinate s = queue.poll();
           
-            if(visited[s.x][s.y]>=10) {
+            if(visited[s.x][s.y]>=5) {
 //            	for(int i=0;i<20;i++) {
 //        			for(int j=0;j<30;j++) {
 //        				System.out.print(visited[j][i] + " ");    				
@@ -387,7 +387,7 @@ public class Ghost3 extends Creature {
 		}
 		xMove+=x*speed;
 		yMove+=y*speed;
-//		gMove();
+		gMove();
 		
 		
 	}

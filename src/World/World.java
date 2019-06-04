@@ -34,7 +34,7 @@ public class World {
 		this.handler = handler; 
 		
 		//Initialize entityManager; 
-		entityManager = new EntityManager(handler, new Player(handler,30,30));
+		entityManager = new EntityManager(handler, new Player(handler,450,30));
 				
 		
 		//ADD COIN
