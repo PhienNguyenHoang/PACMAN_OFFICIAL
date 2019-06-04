@@ -291,6 +291,7 @@ public class EntityManager {
 				addEntity(new Coin (handler,30*11, 30*14));
 				addEntity(new Coin (handler,30*13, 30*14));
 				addEntity(new Coin (handler,30*16, 30*14));
+				addEntity(new Coin (handler,30*18, 30*14));
 				addEntity(new Coin (handler,30*20, 30*14));
 				addEntity(new Coin (handler,30*22, 30*14));
 				addEntity(new Coin (handler,30*26, 30*14));

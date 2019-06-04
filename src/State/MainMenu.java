@@ -17,7 +17,7 @@ public class MainMenu extends State{
 		uiManager=new UIManager(handler);
 		handler.getMouseManager().setUiManager(uiManager);
 		
-		uiManager.addObject(new UIText((int)0,(int)0,900,600,Assets.rule));
+		uiManager.addObject(new UIText((int)0,(int)0,900,600,Assets.rule1));
 		uiManager.addObject(new UIImageButton(380,450,75,75,Assets.button,new ClickListener() {
 
 			@Override

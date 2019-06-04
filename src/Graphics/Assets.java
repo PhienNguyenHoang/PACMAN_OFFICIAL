@@ -7,7 +7,7 @@ public class Assets {
 	
 
 	
-	public static BufferedImage pacman,coin,diamond,background,wall,rule;
+	public static BufferedImage pacman,coin,diamond,background,wall,rule,rule1;
 	public static BufferedImage[] pac_left,pac_right,blinky,pinky,inky,clyde,button;
 	
 	
@@ -48,6 +48,7 @@ public class Assets {
 		button[1] = ImageLoader.loadImage("/Images/button1.png");
 		
 		rule=ImageLoader.loadImage("/Images/RULES.png");
+		rule1=ImageLoader.loadImage("/Images/quynh.png");
 	}
 	
 	

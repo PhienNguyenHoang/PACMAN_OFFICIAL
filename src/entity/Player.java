@@ -32,7 +32,7 @@ public class Player extends Creature {
 	public boolean winner=true; 
 
 	private GameState gameState;
-	public boolean up=true,down,right,left;
+	public boolean up=true,down,right,left,die;
 	
 	private HashMap<String,AudioPlayer> sfx ;
 	
@@ -113,8 +113,15 @@ public class Player extends Creature {
 	            if (e.getCollisionBounds().intersects(ar)) {
 	                if(e instanceof Ghost1 ||e instanceof Ghost2){
 	                	this.beEaten(1);
+	                	handler.getGame().setLives(1);
+//	                	if(dead)
+	                	newPos();
+	                	if(handler.getGame().getLives()<=0)
+	                	 	handler.getGame().run();
+	                		
+//	                	else
 	                	
-	                    //die();
+//	                    handler.getMainMenu();
 	                    //handler.getGame().getG().drawString("You are Killed. Your Score : " + handler.getGame().getScore(), 300, 200);
 	                    return;
 	                }
@@ -133,6 +140,11 @@ public class Player extends Creature {
 	        }
 	                  
 	    }
+	public void newPos() {
+		super.x=450;
+		super.y=30;
+		
+	}
 	    
 	
 	
@@ -159,8 +171,9 @@ public class Player extends Creature {
 	    
 	    @Override
 	    public void die() {
-	    	
+
 	    	System.out.print("lose");
+	      
 	    }
 	    
 	    public void getInput() {

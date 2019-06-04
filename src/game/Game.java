@@ -2,6 +2,7 @@ package game;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import entity.Player;
@@ -33,6 +34,7 @@ public class Game implements Runnable {
 	//worldNumber and Score
     private int worldNumber = 1;
     private int score;
+    private int live=3;
     
     
 	
@@ -80,7 +82,8 @@ public class Game implements Runnable {
 		State.setState(menuState);
 		if(State.getState()== menuState) {
 		sound=new Sound("/Sound/pacman_beginning.wav");
-		sound.play();}
+		sound.play();
+		}
 		if(State.getState()== gameState) {
 			sound=new Sound("/Sound/pacman_chomp.wav");
 			sound.play();	
@@ -108,7 +111,9 @@ public class Game implements Runnable {
 		if(State.getState()!=null) {
 			State.getState().render(g);
 		}
-		
+		if(handler.getKeyManager().escape) {
+			start();
+		}
 //		g.drawImage(Assets.pacman,10,10,null);
 		
 		bs.show();
@@ -173,6 +178,12 @@ public class Game implements Runnable {
 	 }
 	 public void setScore(int score) {
 	    this.score = this.score + score;
+	 }
+	 public void setLives(int live) {
+		 this.live=this.live - live;
+	 }
+	 public int getLives() {
+		 return live;
 	 }
 	
 	    
