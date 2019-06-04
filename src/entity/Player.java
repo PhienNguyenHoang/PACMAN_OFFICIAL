@@ -74,7 +74,7 @@ public class Player extends Creature {
 		
 		//eat
 		checkAttack();
-        checkScore();;
+        checkScore();
 		
 		
 	}
@@ -104,9 +104,9 @@ public class Player extends Creature {
 	        }
 	        else{
 	        	return;
-	            //ar.x = cb.x - arSize ;
-	            //ar.y = cb.y + cb.height / 2 - arSize / 2;
+	           
 	        }
+	
 
 	        
 	        for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
@@ -115,23 +115,18 @@ public class Player extends Creature {
 	            }
 	            if (e.getCollisionBounds().intersects(ar)) {
 	                if(e instanceof Ghost1 ||e instanceof Ghost2 || e instanceof Ghost3 || e instanceof Ghost4){
-	                	this.beEaten(1);
 	                	
+	                	this.beEaten(1); 
 	                	handler.getGame().setLives(1);
-//               		if(dead)
+//               		
 	                	newPos();
-	                	if(handler.getGame().getLives()==0) 
+	                	if(handler.getGame().getLives()==0) {
 //	                		handler.getGame().setLives(-3);
-	                	 	handler.getState().setState(new EndingState(handler));
+	                	 	handler.getState().setState(new EndingState(handler));}
 //	                	else {
 //	                		handler.getGame().run();
 //	                	}
-//	                	
-	                		
-	                		
-	                	
-//	                		
-//	                	else
+//	                
 	                	
 //	                    handler.getMainMenu();
 	                    //handler.getGame().getG().drawString("You are Killed. Your Score : " + handler.getGame().getScore(), 300, 200);
@@ -144,14 +139,18 @@ public class Player extends Creature {
 	                	handler.getGame().setScore(10);
 	                	return;
 	                }
-	                
-	                e.beEaten(3);
-                	handler.getGame().setScore(1);
-	                return;
-	            }
+	               
+	                	e.beEaten(3);
+	                	handler.getGame().setScore(1);
+		                return;
+	                }    
 	        }
+	     }
+	     
+	        
+	
 	                  
-	    }
+	    
 	public void newPos() {
 		super.x=450;
 		super.y=30;
@@ -164,7 +163,7 @@ public class Player extends Creature {
 	 
 	  //public boolean winner;
 	    
-	  private void checkScore(){
+	 private void checkScore(){
 	        
 	        int count = 0;
 	        for(Entity e : handler.getWorld().getEntityManager().getEntities()){
@@ -172,14 +171,14 @@ public class Player extends Creature {
 	                count++;
 	            }
 	        }
-	           
-	     }
-	  
-	  
-	  
+	        
+	       	if(count==0) {
+	        	State.setState(handler.getGame().getWinnerState());
+	        }
+	        
+	        
+	        }
 	 
-
-	   
 	    
 	    @Override
 	    public void die() {
@@ -222,16 +221,14 @@ public class Player extends Creature {
 			up=false;
 			down=false;
 	    	}
-	    	/*if(handler.getKeyManager().escape){
+	    	if(handler.getKeyManager().escape){
 	         dead = true;
 	         State.setState(handler.getGame().getMenuState());
-	    	}*/
+	    	}
 	    }
 	        
 	
-	public boolean getFrighten() {
-		return frighten; 
-	}
+	
 //	public boolean getDirection(int key) {
 //		if(up)
 //		return up;
@@ -250,10 +247,10 @@ public class Player extends Creature {
 	@Override
 	public void render(Graphics g) {
 		g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);
-		g.setColor(Color.GREEN);
-		g.setFont(new Font("Sergiue", Font.BOLD, 25));
-		g.drawString("Score : " + handler.getGame().getScore()  /*handler.getGame().getCanvas().getWidth() - 150 , 50*/, 30*20,30);
-		g.drawString("Lives: "+ handler.getWorld().getEntityManager().getPlayer().getHealth(),30*20,30*2);
+		g.setColor(Color.red);
+		g.setFont(new Font("Sergiue", Font.BOLD, 20));
+		g.drawString("SCORE : " + handler.getGame().getScore()  /*handler.getGame().getCanvas().getWidth() - 150 , 50*/, 30*25,28);
+		g.drawString("LIVES: "+ handler.getWorld().getEntityManager().getPlayer().getHealth(),30*2,28);
 	}
 	private BufferedImage getCurrentAnimationFrame() {
 		if(xMove<0) {
