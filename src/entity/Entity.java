@@ -48,7 +48,7 @@ public  abstract class Entity {
 	}
 	
 	public void beEaten (int amt) {
-		health=-amt;
+		health-=amt;
 		if (health<=0) {
 			active= false; 
 			die();

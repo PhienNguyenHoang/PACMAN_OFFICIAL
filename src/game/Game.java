@@ -34,7 +34,7 @@ public class Game implements Runnable {
 	//worldNumber and Score
     private int worldNumber = 1;
     private int score;
-    private int live=3;
+    private int live;
     
     
 	
@@ -60,6 +60,8 @@ public class Game implements Runnable {
 		this.title = title; 
 		keyManager = new KeyManager();
 		mouseManager=new MouseManager();
+		score=0;
+		live=3;
 		
 	}
 	private void init() {
@@ -88,7 +90,7 @@ public class Game implements Runnable {
 			sound=new Sound("/Sound/pacman_chomp.wav");
 			sound.play();	
 		}
-		
+
 		
 	}
 	
@@ -111,9 +113,7 @@ public class Game implements Runnable {
 		if(State.getState()!=null) {
 			State.getState().render(g);
 		}
-		if(handler.getKeyManager().escape) {
-			start();
-		}
+		
 //		g.drawImage(Assets.pacman,10,10,null);
 		
 		bs.show();
@@ -123,6 +123,7 @@ public class Game implements Runnable {
 	@Override
 	public void run() {
 		init();
+
 		
 		int fps = 60; 
 		double timePerTick= 1000000000/ fps; 
@@ -180,7 +181,7 @@ public class Game implements Runnable {
 	    this.score = this.score + score;
 	 }
 	 public void setLives(int live) {
-		 this.live=this.live - live;
+		 this.live = this.live - live;
 	 }
 	 public int getLives() {
 		 return live;

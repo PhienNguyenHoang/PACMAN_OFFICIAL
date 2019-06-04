@@ -9,15 +9,15 @@ import UI.UIManager;
 import UI.UIText;
 import game.HandleClass;
 
-public class MainMenu extends State{
+public class EndingState extends State{
 	private UIManager uiManager;
 
-	public MainMenu(HandleClass handler) {
+	public EndingState(HandleClass handler) {
 		super(handler);
 		uiManager=new UIManager(handler);
-		handler.getMouseManager().setUiManager(uiManager);
 		
-		uiManager.addObject(new UIText((int)0,(int)0,900,600,Assets.rule));
+		
+		uiManager.addObject(new UIText((int)0,(int)0,900,600,Assets.gameover));
 		uiManager.addObject(new UIImageButton(380,450,75,75,Assets.button,new ClickListener() {
 
 			@Override
@@ -40,7 +40,5 @@ public class MainMenu extends State{
 		uiManager.render(g);
 		
 	}
-	
-	
 
 }

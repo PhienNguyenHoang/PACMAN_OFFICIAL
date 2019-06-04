@@ -11,10 +11,13 @@ import java.util.HashMap;
 
 import Graphics.Animation;
 import Graphics.Assets;
+import State.EndingState;
 import State.GameState;
+import State.MainMenu;
 import State.State;
 import entitystatic.Coin;
 import entitystatic.Diamond;
+import game.Game;
 import game.HandleClass;
 import input.KeyManager;
 import sun.audio.AudioPlayer;
@@ -113,12 +116,18 @@ public class Player extends Creature {
 	            if (e.getCollisionBounds().intersects(ar)) {
 	                if(e instanceof Ghost1 ||e instanceof Ghost2){
 	                	this.beEaten(1);
+	                	
 	                	handler.getGame().setLives(1);
-//	                	if(dead)
+//               		if(dead)
 	                	newPos();
-	                	if(handler.getGame().getLives()<=0)
-	                	 	handler.getGame().run();
+	                	if(handler.getGame().getLives()==0) 
+//	                		handler.getGame().setLives(-3);
+	                	 	handler.getState().setState(new EndingState(handler));
+	                	
 	                		
+	                		
+	                	
+//	                		
 //	                	else
 	                	
 //	                    handler.getMainMenu();
