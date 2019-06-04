@@ -23,7 +23,7 @@ public class WinnerState extends State{
 			public void onClick() {
 				// TODO Auto-generated method stub
 				handler.getMouseManager().setUiManager(null);
-				State.setState(handler.getGame().getMenuState());
+				State.getState();
 			}}));
 		// TODO Auto-generated constructor stub
 	}

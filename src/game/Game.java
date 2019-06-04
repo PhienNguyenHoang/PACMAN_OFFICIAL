@@ -13,9 +13,11 @@ import Graphics.Assets;
 import Graphics.CropImage;
 import Graphics.ImageLoader;
 import Sound.Sound;
+import State.EndingState;
 import State.GameState; 
 import State.MainMenu;
 import State.State;
+import State.WinnerState;
 
 public class Game implements Runnable {
 	
@@ -31,23 +33,28 @@ public class Game implements Runnable {
 	private Thread thread;
 
 	
-	//worldNumber and Score
-    private int worldNumber = 1;
+	//Score and Lives
     private int score;
     private int live;
     
-    
-	
+   
 	//State
 
 	private State gameState;
 	private State menuState;
+	private State winningState;
+	private State endingState; 
+	
+	
 	//Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
+	
+	
 	//Handler
 	private HandleClass handler;
 	
+	//Sound
 	private Sound sound;
 	
 	
@@ -75,13 +82,15 @@ public class Game implements Runnable {
 		Assets.init();
 		handler = new HandleClass(this);
 		
-		setGameState(new GameState(handler));
-
+		//setGameState(new GameState(handler));
+		gameState= new GameState(handler);
 		menuState= new MainMenu(handler);
-		State.setState(getGameState());
-
-		menuState = new MainMenu(handler);
 		State.setState(menuState);
+
+		winningState = new  WinnerState(handler);
+		endingState= new EndingState(handler);
+		
+		
 		if(State.getState()== menuState) {
 		sound=new Sound("/Sound/pacman_beginning.wav");
 		sound.play();
@@ -89,6 +98,10 @@ public class Game implements Runnable {
 		if(State.getState()== gameState) {
 			sound=new Sound("/Sound/pacman_chomp.wav");
 			sound.play();	
+		}
+		if(State.getState()==winningState||State.getState()==endingState) {
+			State.setState(new MainMenu(handler));
+			
 		}
 
 		
@@ -219,9 +232,14 @@ public class Game implements Runnable {
 		return gameState;
 	}
 
-	private void setGameState(GameState gameState2) {
-		// TODO Auto-generated method stub
-		this.gameState= gameState2; 
+	public State getWinningState() {
+		return winningState;
 	}
+	
+	public State getEndingState() {
+		return endingState;
+	}
+	
+	
 
 }

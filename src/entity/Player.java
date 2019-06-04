@@ -173,7 +173,7 @@ public class Player extends Creature {
 	        }
 	        
 	       	if(count==0) {
-	        	State.setState(handler.getGame().getWinnerState());
+	        	State.setState(handler.getGame().getWinningState());
 	        }
 	        
 	        
