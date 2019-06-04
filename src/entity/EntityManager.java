@@ -375,7 +375,7 @@ public class EntityManager {
 				addEntity(new Ghost1(handler, 30*14, 30*18)); 
 				addEntity(new Ghost2(handler, 30*14, 30*19));
 				addEntity(new Ghost2 (handler, 30*7, 30*4));
-				addEntity(new Ghost3(handler,30*4, 30*6));
+//				addEntity(new Ghost3(handler,30*4, 30*6));
 				
 				
 		

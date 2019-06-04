@@ -4,8 +4,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
+
 import Graphics.Animation;
 import Graphics.Assets;
 import State.GameState;
@@ -13,6 +16,8 @@ import State.State;
 import entitystatic.Coin;
 import entitystatic.Diamond;
 import game.HandleClass;
+import input.KeyManager;
+import sun.audio.AudioPlayer;
 
 
 
@@ -29,7 +34,8 @@ public class Player extends Creature {
 	private GameState gameState;
 	public boolean up=true,down,right,left;
 	
-
+	private HashMap<String,AudioPlayer> sfx ;
+	
 	
 	public Player(HandleClass handler, float x, float y) {
 		
@@ -48,6 +54,8 @@ public class Player extends Creature {
 		bounds.y = 0;
 		bounds.width = 25;
 		bounds.height = 25;
+		sfx = new HashMap<String,AudioPlayer>();
+//		sfx.put("eat", new AudioPlayer("/Sound/pacman_eatfruit.wav"));
 	}
 
 	@Override
@@ -162,15 +170,32 @@ public class Player extends Creature {
 		
 	    	if(handler.getKeyManager().up) {
 			yMove= -speed;
+			up=true;
+			down=false;
+			right=false;
+			left=false;
 	    	}
 	    	if(handler.getKeyManager().down) {
 			yMove= speed;
+			down=true;
+			up=false;
+			right=false;
+			left=false;
 	    	}
 	    	if(handler.getKeyManager().right) {
 			xMove= speed;
+			right=true;
+			up=false;
+			down=false;
+			left=false;
+			
 	    	}
 	    	if(handler.getKeyManager().left) {
 			xMove= -speed;
+			left=true;
+			right=false;
+			up=false;
+			down=false;
 	    	}
 	    	/*if(handler.getKeyManager().escape){
 	         dead = true;
@@ -182,6 +207,19 @@ public class Player extends Creature {
 	public boolean getFrighten() {
 		return frighten; 
 	}
+//	public boolean getDirection(int key) {
+//		if(up)
+//		return up;
+//		else if(key==KeyEvent.VK_S)
+//			return down;
+//		else if(key==KeyEvent.VK_D)
+//			return right;
+//		else if(key==KeyEvent.VK_A)
+//			return left;
+//		
+//		return false;
+//		
+//	}
 	
 
 	@Override
@@ -202,5 +240,6 @@ public class Player extends Creature {
 		
 		return pac_right.getCurrentFrame();
 	}
+	
 	
 }

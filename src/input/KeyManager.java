@@ -44,5 +44,11 @@ public class KeyManager implements KeyListener {
 		// TODO Auto-generated method stub
 		
 	}
+	public boolean[] getKeys() {
+		return keys;
+	}
+	public void setKeys(boolean[] keys) {
+		this.keys = keys;
+	}
 
 }

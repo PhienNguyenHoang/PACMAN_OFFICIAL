@@ -11,6 +11,7 @@ import Display.Display;
 import Graphics.Assets;
 import Graphics.CropImage;
 import Graphics.ImageLoader;
+import Sound.Sound;
 import State.GameState; 
 import State.MainMenu;
 import State.State;
@@ -45,6 +46,8 @@ public class Game implements Runnable {
 	//Handler
 	private HandleClass handler;
 	
+	private Sound sound;
+	
 	
 
 	
@@ -75,7 +78,14 @@ public class Game implements Runnable {
 
 		menuState = new MainMenu(handler);
 		State.setState(menuState);
-
+		if(State.getState()== menuState) {
+		sound=new Sound("/Sound/pacman_beginning.wav");
+		sound.play();}
+		if(State.getState()== gameState) {
+			sound=new Sound("/Sound/pacman_chomp.wav");
+			sound.play();	
+		}
+		
 		
 	}
 	
