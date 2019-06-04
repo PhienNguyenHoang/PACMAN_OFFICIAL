@@ -7,6 +7,8 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
+
 import Graphics.Animation;
 import Graphics.Assets;
 import State.GameState;
@@ -15,6 +17,7 @@ import entitystatic.Coin;
 import entitystatic.Diamond;
 import game.HandleClass;
 import input.KeyManager;
+import sun.audio.AudioPlayer;
 
 
 
@@ -31,7 +34,8 @@ public class Player extends Creature {
 	private GameState gameState;
 	public boolean up=true,down,right,left;
 	
-
+	private HashMap<String,AudioPlayer> sfx ;
+	
 	
 	public Player(HandleClass handler, float x, float y) {
 		
@@ -50,6 +54,8 @@ public class Player extends Creature {
 		bounds.y = 0;
 		bounds.width = 25;
 		bounds.height = 25;
+		sfx = new HashMap<String,AudioPlayer>();
+//		sfx.put("eat", new AudioPlayer("/Sound/pacman_eatfruit.wav"));
 	}
 
 	@Override
