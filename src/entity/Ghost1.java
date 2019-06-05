@@ -12,7 +12,7 @@ import tiles.Tile;
 
 public class Ghost1 extends Creature {
 	
-	public Animation ghost;
+	public Animation ghost1;
 	public boolean up=true,down,left,right;
 	
 	public Ghost1(HandleClass handler, float x, float y) {
@@ -24,7 +24,11 @@ public class Ghost1 extends Creature {
 		bounds.width=25;
 		bounds.height=25;
 		
-		ghost=new Animation(500,Assets.blinky);
+		//ghost=new Animation(500,Assets.blinky);
+		//Animation
+		ghost1= new Animation(500,Assets.blinky);
+		
+				
 		
 		// TODO Auto-generated constructor stub
 	}
@@ -32,7 +36,8 @@ public class Ghost1 extends Creature {
 	@Override
 	public void tick() {
 		// TODO Auto-generated method stub
-		ghost.tick();
+		ghost1.tick();
+		
 		
 		gMove();
 		
@@ -227,23 +232,27 @@ public class Ghost1 extends Creature {
 	@Override
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
-		if (handler.getWorld().getEntityManager().getPlayer().frighten==true ) {
-			g.drawImage(Assets.frighten, (int)x,(int)y,width,height, null );
-				}
-		else
+		
+		if (handler.getGame().getFrighten()==true) {
+			g.drawImage(Assets.frighten,(int) x, (int) y,width,height, null);
+			
+		}
+		else {
+		
 			g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);
+		}
+		
+	}
+	private BufferedImage getCurrentAnimationFrame() {
+		return ghost1.getCurrentFrame();
+		
 		
 	}
 	
+	
 	public void die() {}
 
-	private BufferedImage getCurrentAnimationFrame() {
-		
-		
-		
-		// TODO Auto-generated method stub
-		return ghost.getCurrentFrame();
-	}
+	
 	
 
 }

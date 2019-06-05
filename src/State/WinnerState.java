@@ -17,7 +17,7 @@ public class WinnerState extends State{
 		handler.getMouseManager().setUiManager(uiManager);
 		
 		uiManager.addObject(new UIText((int)0,(int)0,900,600,Assets.winner));
-		uiManager.addObject(new UIImageButton(380,450,75,75,Assets.button,new ClickListener() {
+		uiManager.addObject(new UIImageButton(290,345,75,75,Assets.button,new ClickListener() {
 
 			@Override
 			public void onClick() {

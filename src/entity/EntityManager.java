@@ -175,6 +175,8 @@ public class EntityManager {
 				addEntity(new Coin (handler,30*3, 30*7));
 				addEntity(new Coin (handler,30*7, 30*7));
 				addEntity(new Coin (handler,30*9, 30*7));
+				addEntity(new Coin (handler,30*13, 30*7));
+				addEntity(new Coin (handler,30*16, 30*7));
 				addEntity(new Coin (handler,30*20, 30*7));
 				addEntity(new Coin (handler,30*22, 30*7));
 				addEntity(new Coin (handler,30*26, 30*7));
@@ -204,12 +206,14 @@ public class EntityManager {
 				addEntity(new Coin (handler, 30, 30*9));
 				addEntity(new Coin (handler,30*5, 30*9));
 				addEntity(new Coin (handler,30*7, 30*9));
-				//
-				addEntity(new Diamond (handler, 30*9, 30*9));
-				addEntity(new Diamond (handler, 30*20, 30*9));
+				
+				addEntity(new Coin (handler, 30*9, 30*9));
+				addEntity(new Coin (handler, 30*13, 30*9));
+				addEntity(new Coin (handler, 30*16, 30*9));
+				addEntity(new Coin (handler, 30*20, 30*9));
 				
 				//
-				addEntity(new Coin (handler,30*15, 30*9));
+				
 				addEntity(new Coin (handler,30*22, 30*9));
 				addEntity(new Coin (handler,30*24, 30*9));
 				addEntity(new Coin (handler,30*28, 30*9));
@@ -227,7 +231,6 @@ public class EntityManager {
 				addEntity(new Coin (handler,30*18, 30*10));
 				addEntity(new Coin (handler,30*22, 30*10));
 				addEntity(new Coin (handler,30*24, 30*10));
-				addEntity(new Coin (handler,30*26, 30*10));
 				addEntity(new Coin (handler,30*28, 30*10));
 				
 				addEntity(new Coin(handler,30,30*11));
@@ -239,6 +242,7 @@ public class EntityManager {
 				addEntity(new Coin (handler,30*7, 30*11));
 				addEntity(new Coin (handler,30*8, 30*11));
 				addEntity(new Coin (handler,30*9, 30*11));
+				addEntity(new Coin (handler,30*10, 30*11));
 				addEntity(new Coin (handler,30*11, 30*11));
 				addEntity(new Coin (handler,30*18, 30*11));
 				addEntity(new Coin (handler,30*19, 30*11));
@@ -247,7 +251,9 @@ public class EntityManager {
 				addEntity(new Coin (handler,30*22, 30*11));
 				addEntity(new Coin (handler,30*23, 30*11));
 				addEntity(new Coin (handler,30*24, 30*11));
+				addEntity(new Coin (handler,30*25, 30*11));
 				addEntity(new Coin (handler,30*26, 30*11));
+				addEntity(new Coin (handler,30*27, 30*11));
 				addEntity(new Coin (handler,30*28, 30*11));
 				
 
@@ -256,12 +262,10 @@ public class EntityManager {
 				addEntity(new Coin (handler,30*9, 30*12));
 				addEntity(new Coin (handler,30*11, 30*12));
 				addEntity(new Coin (handler,30*13, 30*12));
-				addEntity(new Coin (handler,30*16, 30*12));
+				addEntity(new Diamond (handler,30*16, 30*12));
 				addEntity(new Coin (handler,30*18, 30*12));
 				addEntity(new Coin (handler,30*20, 30*12));
 				addEntity(new Coin (handler,30*24, 30*12));
-				addEntity(new Coin (handler,30*26, 30*12));
-				addEntity(new Coin (handler,30*27, 30*12));
 				addEntity(new Coin (handler,30*28, 30*12));
 				
 
@@ -298,12 +302,15 @@ public class EntityManager {
 				addEntity(new Coin (handler,30*28, 30*14));
 
 				addEntity(new Coin(handler,30,30*15));
+				addEntity(new Coin (handler,30*2, 30*15));
 				addEntity(new Coin (handler,30*3, 30*15));
 				addEntity(new Coin (handler,30*4, 30*15));
 				addEntity(new Coin (handler,30*5, 30*15));
 				addEntity(new Coin (handler,30*6, 30*15));
 				addEntity(new Coin (handler,30*7, 30*15));
+				addEntity(new Coin (handler,30*8, 30*15));
 				addEntity(new Coin (handler,30*9, 30*15));
+				addEntity(new Coin (handler,30*10, 30*15));
 				addEntity(new Coin (handler,30*11, 30*15));
 				addEntity(new Coin (handler,30*12, 30*15));
 				addEntity(new Coin (handler,30*13, 30*15));
@@ -312,13 +319,17 @@ public class EntityManager {
 				addEntity(new Coin (handler,30*16, 30*15));
 				addEntity(new Coin (handler,30*17, 30*15));
 				addEntity(new Coin (handler,30*18, 30*15));
+				addEntity(new Coin (handler,30*19, 30*15));
 				addEntity(new Coin (handler,30*20, 30*15));
+				addEntity(new Coin (handler,30*21, 30*15));
 				addEntity(new Coin (handler,30*22, 30*15));
 				addEntity(new Coin (handler,30*23, 30*15));
 				addEntity(new Coin (handler,30*24, 30*15));
 				addEntity(new Coin (handler,30*25, 30*15));
 				addEntity(new Coin (handler,30*26, 30*15));
+				addEntity(new Coin (handler,30*27, 30*15));
 				addEntity(new Coin (handler,30*28, 30*15));
+				
 				
 				addEntity(new Coin(handler,30,30*16));
 				addEntity(new Coin (handler,30*3, 30*16));
@@ -357,8 +368,9 @@ public class EntityManager {
 				addEntity(new Coin (handler,30*28, 30*17));
 				
 				addEntity(new Coin(handler,30,30*18));
+				addEntity(new Coin (handler,30*2, 30*18));
 				addEntity(new Coin (handler,30*3, 30*18));
-				addEntity(new Diamond (handler,30*7, 30*18));
+				addEntity(new Coin (handler,30*7, 30*18));
 				addEntity(new Coin (handler,30*11, 30*18));
 				addEntity(new Coin (handler,30*12, 30*18));
 				addEntity(new Coin (handler,30*13, 30*18));
@@ -367,8 +379,9 @@ public class EntityManager {
 				addEntity(new Coin (handler,30*16, 30*18));
 				addEntity(new Coin (handler,30*17, 30*18));
 				addEntity(new Coin (handler,30*18, 30*18));
-				addEntity(new Diamond (handler,30*22, 30*18));
+				addEntity(new Coin (handler,30*22, 30*18));
 				addEntity(new Coin (handler,30*26, 30*18));
+				addEntity(new Coin (handler,30*27, 30*18));
 				addEntity(new Coin (handler,30*28, 30*18));
 				
 			//ADD GHOST

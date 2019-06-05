@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -22,6 +24,7 @@ import game.Game;
 import game.HandleClass;
 import input.KeyManager;
 import sun.audio.AudioPlayer;
+import javax.swing.Timer; 
 
 
 
@@ -31,10 +34,6 @@ public class Player extends Creature {
 	private Animation pac_left,pac_right;
 
 	
-	
-	public boolean dead=false; 
-	public boolean winner=true; 
-	public static boolean frighten= false; 
 	
 
 	private GameState gameState;
@@ -77,7 +76,7 @@ public class Player extends Creature {
 		
 		//eat
 		checkAttack();
-        checkScore();
+        checkWin();
 		
 		
 	}
@@ -113,51 +112,55 @@ public class Player extends Creature {
 
 	        
 	        for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
+	        	//boolean frighten=true; 
 	            if (e.equals(this)) {
 	                continue;
 	            }
 	            if (e.getCollisionBounds().intersects(ar)) {
 	                if(e instanceof Ghost1 ||e instanceof Ghost2 || e instanceof Ghost3 || e instanceof Ghost4){
-	                	
-	                	this.beEaten(1); 
-	                	handler.getGame().setLives(1);
-//               		
-	                	newPos();
-	                	if(handler.getGame().getLives()==0) {
-//	                		handler.getGame().setLives(-3);
-	                		
-	                	 	handler.getState().setState(new EndingState(handler));}
-//	                	else {
-//	                		handler.getGame().run();
-//	                	}
-	                	if(frighten==true) {
-	                		e.beEaten(3);
-	                		handler.getGame().setScore(10);
-	                	}
-	                	
-//	                    handler.getMainMenu();
-	                    //handler.getGame().getG().drawString("You are Killed. Your Score : " + handler.getGame().getScore(), 300, 200);
-	                    return;
-	                }
-	                	
-	                if(e instanceof Diamond) {
-	                	frighten= true;
-	                	e.beEaten(3);
-	                	handler.getGame().setScore(10);
-	                	if(handler.getGame().getScore()==handler.getGame().getScore()+30)
-	                		frighten=false;
-	                	return;
-	                }
-
 	                
-	               
-	               
+	                	if(handler.getGame().getFrighten()==true) {
+	                		e.beEaten(3);
+	                		handler.getGame().setScore(200);
+	                		return;
+	                	}
+	                	else {
+	                		this.beEaten(1); 
+	                		handler.getGame().setLives(1);
+	                		newPos();
+	                		if(handler.getGame().getLives()==0) {                		
+	                			handler.getState().setState(new EndingState(handler));
+	                		}
+	                	}
+	               		return;
+	                   
+	                }
+	               	
+	                if(e instanceof Diamond) {
+	                	
 	                	e.beEaten(3);
-	                	handler.getGame().setScore(1);
-		                return;
-	                }    
-	        }
-	     }
+	                	handler.getGame().setScore(100);
+	                	handler.getGame().setFrighten(true);
+	                	Timer timer = new Timer(6000, new ActionListener() {
+	                		  @Override
+	                		  public void actionPerformed(ActionEvent arg0) {
+	                			  handler.getGame().setFrighten(false);
+	                		  }
+	                		});
+	                		timer.setRepeats(false);
+	                		timer.start(); 
+	                	
+            			return;
+	                	
+                	}
+    
+	                e.beEaten(3);
+	                handler.getGame().setScore(10);
+		            return;
+	            }    
+	       }
+	        
+	}
 	     
 	        
 	
@@ -168,36 +171,28 @@ public class Player extends Creature {
 		super.y=30*9;
 		
 	}
-	    
-//	public void timing() {
-//		
-//			long now= System.nanoTime();
-//			long delta = 1000000000;
-//			long lasttime= now +delta; 
-//			for (long i =now; i< delta;i++ ) {
-//				
-//				frighten=true; 
-//			}
-//		
-//	}
-//	
-	
+
 	 
-	  //public boolean winner;
 	    
-	 private void checkScore(){
+	 private void checkWin(){
+		 
+		 // Check win if eat all coin ==> win
 	        
-	        int count = 0;
-	        for(Entity e : handler.getWorld().getEntityManager().getEntities()){
-	            if((e instanceof Coin)||(e instanceof Diamond)) {
-	                count++;
-	            }
-	        }
-	        
-	       	if(count==0) {
-	       		handler.getState().setState(new WinnerState(handler));;
-	        }
-	        
+//	        int count = 0;
+//	        for(Entity e : handler.getWorld().getEntityManager().getEntities()){
+//	            if((e instanceof Coin)||(e instanceof Diamond)) {
+//	                count++;
+//	            }
+//	        }
+//	        
+//	       	if(count==0) {
+//	       		handler.getState().setState(new WinnerState(handler));;
+//	        }
+		 
+		 if (handler.getGame().getScore()== 1500) {
+			 handler.getState().setState(new WinnerState(handler));
+		 }
+//	        
 	        
 	        }
 	 
@@ -251,35 +246,9 @@ public class Player extends Creature {
 	    	}
 	    }
 	    
-	    
-	    public void checkFrighten() {
-			
-			for(int time = (int)System.currentTimeMillis(); time< (int)(System.currentTimeMillis()+1); time++){
-				frighten= true; 
-			
-				
-			}
-			frighten= false; 
-		
+	   
+	
 
-			
-		}
-	        
-	
-	
-//	public boolean getDirection(int key) {
-//		if(up)
-//		return up;
-//		else if(key==KeyEvent.VK_S)
-//			return down;
-//		else if(key==KeyEvent.VK_D)
-//			return right;
-//		else if(key==KeyEvent.VK_A)
-//			return left;
-//		
-//		return false;
-//		
-//	}
 	
 
 	@Override

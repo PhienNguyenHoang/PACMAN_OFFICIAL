@@ -36,6 +36,7 @@ public class Game implements Runnable {
 	//Score and Lives
     private int score;
     private int live;
+    private boolean frighten; 
     
    
 	//State
@@ -69,6 +70,7 @@ public class Game implements Runnable {
 		mouseManager=new MouseManager();
 		//score=0;
 		//live=3;
+		//
 		
 	}
 	public void init() {
@@ -88,9 +90,10 @@ public class Game implements Runnable {
 		State.setState(menuState);
 
 	
-		//score and lives
+		//score , lives and frighten
 		score=0;
 		live=3;
+		frighten= false; 
 		
 		
 		if(State.getState()== menuState) {
@@ -106,13 +109,7 @@ public class Game implements Runnable {
 		
 	}
 	
-	private void tick() {
-		keyManager.tick();
-		if(State.getState()!=null) {
-			State.getState().tick();
-		}
-		
-	}
+	
 	public void render() {
 		bs= display.getCanvas().getBufferStrategy();
 		if(bs==null) {
@@ -187,6 +184,8 @@ public class Game implements Runnable {
 		}
 	}
 	
+	
+	///Getters Setters for SCORE, LIVES and FRIGHTEN
 	 public int getScore() {
 	    return score;
 	 }
@@ -199,7 +198,19 @@ public class Game implements Runnable {
 	 public int getLives() {
 		 return live;
 	 }
-	
+	 public boolean getFrighten() {
+			return frighten;
+		}
+		public void setFrighten(boolean frighten) {
+			this.frighten = frighten;
+		}
+		private void tick() {
+			keyManager.tick();
+			if(State.getState()!=null) {
+				State.getState().tick();
+			}
+			
+		}
 	    
 	
 	public Canvas getCanvas(){

@@ -30,6 +30,7 @@ public class Ghost2 extends Creature {
 		bounds.height=25;
 		
 		ghost2=new Animation(500,Assets.inky);
+		
 	}
 	
 	
@@ -37,6 +38,7 @@ public class Ghost2 extends Creature {
 	@Override
 	public void tick() {
 		ghost2.tick();
+		
 		chase= BFS();
 		System.out.print("Chase: " + chase);
 		if(chase==false) {
@@ -50,17 +52,26 @@ public class Ghost2 extends Creature {
 		move();
 	}
 
+
 	@Override
 	public void render(Graphics g) {
-		if (handler.getWorld().getEntityManager().getPlayer().frighten==true ) {
-			g.drawImage(Assets.frighten, (int)x,(int)y,width,height, null );
-				}
-		else
-			g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);	
+		// TODO Auto-generated method stub
+		
+		if (handler.getGame().getFrighten()==true) {
+			g.drawImage(Assets.frighten,(int) x, (int) y,width,height, null);
+			
+		}
+		else {
+			g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);
+		}
+		
+			
+		
 	}
 	private BufferedImage getCurrentAnimationFrame() {
-		// TODO Auto-generated method stub
 		return ghost2.getCurrentFrame();
+		
+		
 	}
 	class Coordinate {
 		public int x,y;
