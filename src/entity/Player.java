@@ -122,6 +122,7 @@ public class Player extends Creature {
 	                	newPos();
 	                	if(handler.getGame().getLives()==0) {
 //	                		handler.getGame().setLives(-3);
+	                		
 	                	 	handler.getState().setState(new EndingState(handler));}
 //	                	else {
 //	                		handler.getGame().run();
@@ -152,8 +153,8 @@ public class Player extends Creature {
 	                  
 	    
 	public void newPos() {
-		super.x=450;
-		super.y=30;
+		super.x=30*20;
+		super.y=30*9;
 		
 	}
 	    
@@ -173,7 +174,7 @@ public class Player extends Creature {
 	        }
 	        
 	       	if(count==0) {
-	        	State.setState(handler.getGame().getWinningState());
+	        	State.getState().setState(handler.getGame().getWinningState());
 	        }
 	        
 	        
@@ -222,8 +223,8 @@ public class Player extends Creature {
 			down=false;
 	    	}
 	    	if(handler.getKeyManager().escape){
-	         dead = true;
-	         State.setState(handler.getGame().getMenuState());
+	         die();
+	         handler.getState().setState(new EndingState(handler));
 	    	}
 	    }
 	        

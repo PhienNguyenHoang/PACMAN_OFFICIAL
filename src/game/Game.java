@@ -67,11 +67,11 @@ public class Game implements Runnable {
 		this.title = title; 
 		keyManager = new KeyManager();
 		mouseManager=new MouseManager();
-		score=0;
-		live=3;
+		//score=0;
+		//live=3;
 		
 	}
-	private void init() {
+	public void init() {
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
 		display.getFrame().addMouseListener(mouseManager);
@@ -87,8 +87,10 @@ public class Game implements Runnable {
 		menuState= new MainMenu(handler);
 		State.setState(menuState);
 
-		winningState = new  WinnerState(handler);
-		endingState= new EndingState(handler);
+	
+		//score and lives
+		score=0;
+		live=3;
 		
 		
 		if(State.getState()== menuState) {
@@ -99,10 +101,7 @@ public class Game implements Runnable {
 			sound=new Sound("/Sound/pacman_chomp.wav");
 			sound.play();	
 		}
-		if(State.getState()==winningState||State.getState()==endingState) {
-			State.setState(new MainMenu(handler));
-			
-		}
+		
 
 		
 	}
@@ -112,6 +111,7 @@ public class Game implements Runnable {
 		if(State.getState()!=null) {
 			State.getState().tick();
 		}
+		
 	}
 	public void render() {
 		bs= display.getCanvas().getBufferStrategy();
@@ -127,7 +127,7 @@ public class Game implements Runnable {
 			State.getState().render(g);
 		}
 		
-//		g.drawImage(Assets.pacman,10,10,null);
+	
 		
 		bs.show();
 		g.dispose();

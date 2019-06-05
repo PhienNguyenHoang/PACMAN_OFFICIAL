@@ -1,5 +1,6 @@
 package State;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import Graphics.Assets;
@@ -15,16 +16,22 @@ public class EndingState extends State{
 	public EndingState(HandleClass handler) {
 		super(handler);
 		uiManager=new UIManager(handler);
-		
+		handler.getMouseManager().setUiManager(uiManager);
 		
 		uiManager.addObject(new UIText((int)0,(int)0,900,600,Assets.gameover));
+		//handler.getGame().getG().setColor(Color.WHITE);
+		//handler.getGame().getG().drawString("YOUR SCORE" + handler.getGame().getScore(), 60,100 ); 
 		uiManager.addObject(new UIImageButton(380,450,75,75,Assets.button,new ClickListener() {
 
 			@Override
 			public void onClick() {
 				// TODO Auto-generated method stub
+				
 				handler.getMouseManager().setUiManager(null);
-				State.setState(handler.getGame().getGameState());
+				
+				handler.getGame().init();
+				
+				
 			}}));
 		// TODO Auto-generated constructor stub
 	}
