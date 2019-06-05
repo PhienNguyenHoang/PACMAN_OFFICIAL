@@ -15,6 +15,7 @@ import State.EndingState;
 import State.GameState;
 import State.MainMenu;
 import State.State;
+import State.WinnerState;
 import entitystatic.Coin;
 import entitystatic.Diamond;
 import game.Game;
@@ -174,7 +175,7 @@ public class Player extends Creature {
 	        }
 	        
 	       	if(count==0) {
-	        	State.getState().setState(handler.getGame().getWinningState());
+	       		handler.getState().setState(new WinnerState(handler));;
 	        }
 	        
 	        

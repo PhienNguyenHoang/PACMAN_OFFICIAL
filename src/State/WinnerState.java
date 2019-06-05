@@ -14,7 +14,7 @@ public class WinnerState extends State{
 	public WinnerState(HandleClass handler) {
 		super(handler);
 		uiManager=new UIManager(handler);
-		
+		handler.getMouseManager().setUiManager(uiManager);
 		
 		uiManager.addObject(new UIText((int)0,(int)0,900,600,Assets.winner));
 		uiManager.addObject(new UIImageButton(380,450,75,75,Assets.button,new ClickListener() {
@@ -23,7 +23,7 @@ public class WinnerState extends State{
 			public void onClick() {
 				// TODO Auto-generated method stub
 				handler.getMouseManager().setUiManager(null);
-				State.getState();
+				handler.getGame().init();
 			}}));
 		// TODO Auto-generated constructor stub
 	}
