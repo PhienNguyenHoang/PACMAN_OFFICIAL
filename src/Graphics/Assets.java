@@ -7,7 +7,7 @@ public class Assets {
 	
 
 	
-	public static BufferedImage pacman,coin,diamond,background,wall,rule,rule1,gameover,test, winner;
+	public static BufferedImage pacman,coin,diamond,background,wall,rule,rule1,gameover,test, winner,frighten;
 	public static BufferedImage[] pac_left,pac_right,blinky,pinky,inky,clyde,button;
 	
 	
@@ -17,19 +17,19 @@ public class Assets {
 		
 		background=ImageLoader.loadImage("/Images/black.png");
 		wall=ImageLoader.loadImage("/Images/wall.png");
-		blinky= new BufferedImage[2];
+		blinky= new BufferedImage[3];
 		blinky[0]=ImageLoader.loadImage("/Images/2469740-blinky.png"); 
 		blinky[1]=ImageLoader.loadImage("/Images/blinky_right.png");
 		//blinky[2]= ImageLoader.loadImage("/Images/pacmanhh.png");
-		inky=new BufferedImage[2];
+		inky=new BufferedImage[3];
 		inky[0]=ImageLoader.loadImage("/Images/2469741-inky.png");
 		inky[1]=ImageLoader.loadImage("/Images/inky_right.png");
 		//inky[2]= ImageLoader.loadImage("/Images/pacmanhh.png");
-		clyde = new BufferedImage[2];
+		clyde = new BufferedImage[3];
 		clyde[0]=ImageLoader.loadImage("/Images/2469743-orange.png");
 		clyde[1]=ImageLoader.loadImage("/Images/orange_right.png");
 		//clyde[2]= ImageLoader.loadImage("/Images/pacmanhh.png");
-		pinky=new BufferedImage[2];
+		pinky=new BufferedImage[3];
 		pinky[0]=ImageLoader.loadImage("/Images/pinky_left.png");
 		pinky[1]=ImageLoader.loadImage("/Images/pinky_right.png");
 		//pinky[2]= ImageLoader.loadImage("/Images/pacmanhh.png");
@@ -53,6 +53,8 @@ public class Assets {
 		
 		gameover=ImageLoader.loadImage("/Images/gameover.png");
 		winner= ImageLoader.loadImage("/Images/youwin.png");
+		
+		frighten= ImageLoader.loadImage("/Images/frighten.png");
 	}
 	
 	

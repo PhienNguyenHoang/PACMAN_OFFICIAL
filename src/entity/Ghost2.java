@@ -52,7 +52,11 @@ public class Ghost2 extends Creature {
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);		
+		if (handler.getWorld().getEntityManager().getPlayer().frighten==true ) {
+			g.drawImage(Assets.frighten, (int)x,(int)y,width,height, null );
+				}
+		else
+			g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);	
 	}
 	private BufferedImage getCurrentAnimationFrame() {
 		// TODO Auto-generated method stub
@@ -226,8 +230,8 @@ public class Ghost2 extends Creature {
 		xMove=0f;
 		yMove=0f;
 
-		for(int i=0;i<17;i++) {
-			for(int j=0;j<11;j++) {
+		for(int i=0;i<30;i++) {
+			for(int j=0;j<20;j++) {
 				visited[i][j]=0;
 				
 			}

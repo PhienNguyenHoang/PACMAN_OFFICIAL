@@ -52,7 +52,11 @@ public class Ghost3 extends Creature {
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);		
+		if (handler.getWorld().getEntityManager().getPlayer().frighten==true ) {
+			g.drawImage(Assets.frighten, (int)x,(int)y,width,height, null );
+				}
+		else
+			g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);
 	}
 	private BufferedImage getCurrentAnimationFrame() {
 		// TODO Auto-generated method stub

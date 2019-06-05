@@ -19,10 +19,10 @@ public class Ghost1 extends Creature {
 
 		super(handler, x, y, Creature.DEFAULT_WIDTH, Creature.DEFAULT_HEIGHT);
 		
-		/*bounds.x=0;
+		bounds.x=0;
 		bounds.y=0;
 		bounds.width=25;
-		bounds.height=25;*/
+		bounds.height=25;
 		
 		ghost=new Animation(500,Assets.blinky);
 		
@@ -196,10 +196,42 @@ public class Ghost1 extends Creature {
 		}
 		
 	}
+	
+	
+//	public boolean checkFrighten() {
+//		
+//		
+//		
+//		
+//		if (handler.getWorld().getEntityManager().getPlayer().frighten==true) {
+//			 int start= (int) System.currentTimeMillis();
+//			 if(start==start+10) {
+//				 handler.getWorld().getEntityManager().getPlayer().frighten=false;
+//					System.out.print("Start:"+ start);
+//				 return false;
+//			 }}
+//
+//		
+//		return true;
+//		
+//	}
+
+	
+		
+
+
+		
+	
+	
+	
 	@Override
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
-		g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);
+		if (handler.getWorld().getEntityManager().getPlayer().frighten==true ) {
+			g.drawImage(Assets.frighten, (int)x,(int)y,width,height, null );
+				}
+		else
+			g.drawImage(getCurrentAnimationFrame(),(int) x, (int) y,width,height, null);
 		
 	}
 	

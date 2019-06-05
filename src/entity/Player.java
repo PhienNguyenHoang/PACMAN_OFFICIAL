@@ -34,6 +34,8 @@ public class Player extends Creature {
 	
 	public boolean dead=false; 
 	public boolean winner=true; 
+	public static boolean frighten= false; 
+	
 
 	private GameState gameState;
 	public boolean up=true,down,right,left,die;
@@ -80,7 +82,7 @@ public class Player extends Creature {
 		
 	}
 	
-	private boolean frighten= false; 
+	
 	
 	public void checkAttack() {
 	        
@@ -128,7 +130,10 @@ public class Player extends Creature {
 //	                	else {
 //	                		handler.getGame().run();
 //	                	}
-//	                
+	                	if(frighten==true) {
+	                		e.beEaten(3);
+	                		handler.getGame().setScore(10);
+	                	}
 	                	
 //	                    handler.getMainMenu();
 	                    //handler.getGame().getG().drawString("You are Killed. Your Score : " + handler.getGame().getScore(), 300, 200);
@@ -139,8 +144,13 @@ public class Player extends Creature {
 	                	frighten= true;
 	                	e.beEaten(3);
 	                	handler.getGame().setScore(10);
+	                	if(handler.getGame().getScore()==handler.getGame().getScore()+30)
+	                		frighten=false;
 	                	return;
 	                }
+
+	                
+	               
 	               
 	                	e.beEaten(3);
 	                	handler.getGame().setScore(1);
@@ -159,8 +169,18 @@ public class Player extends Creature {
 		
 	}
 	    
-	
-	
+//	public void timing() {
+//		
+//			long now= System.nanoTime();
+//			long delta = 1000000000;
+//			long lasttime= now +delta; 
+//			for (long i =now; i< delta;i++ ) {
+//				
+//				frighten=true; 
+//			}
+//		
+//	}
+//	
 	
 	 
 	  //public boolean winner;
@@ -181,6 +201,8 @@ public class Player extends Creature {
 	        
 	        }
 	 
+	 
+	
 	    
 	    @Override
 	    public void die() {
@@ -228,6 +250,20 @@ public class Player extends Creature {
 	         handler.getState().setState(new EndingState(handler));
 	    	}
 	    }
+	    
+	    
+	    public void checkFrighten() {
+			
+			for(int time = (int)System.currentTimeMillis(); time< (int)(System.currentTimeMillis()+1); time++){
+				frighten= true; 
+			
+				
+			}
+			frighten= false; 
+		
+
+			
+		}
 	        
 	
 	
