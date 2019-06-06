@@ -21,7 +21,7 @@ public class EndingState extends State{
 		uiManager.addObject(new UIText((int)0,(int)0,900,600,Assets.gameover));
 		//handler.getGame().getG().setColor(Color.WHITE);
 		//handler.getGame().getG().drawString("YOUR SCORE" + handler.getGame().getScore(), 60,100 ); 
-		uiManager.addObject(new UIImageButton(410,450,90,90,Assets.button,new ClickListener() {
+		uiManager.addObject(new UIImageButton(420,250,90,90,Assets.button,new ClickListener() {
 
 			@Override
 			public void onClick() {

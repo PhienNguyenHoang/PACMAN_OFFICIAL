@@ -369,7 +369,7 @@ public class EntityManager {
 				
 				addEntity(new Coin(handler,30,30*18));
 				addEntity(new Coin (handler,30*2, 30*18));
-				addEntity(new Coin (handler,30*3, 30*18));
+				addEntity(new Diamond (handler,30*3, 30*18));
 				addEntity(new Coin (handler,30*7, 30*18));
 				addEntity(new Coin (handler,30*11, 30*18));
 				addEntity(new Coin (handler,30*12, 30*18));
@@ -380,7 +380,7 @@ public class EntityManager {
 				addEntity(new Coin (handler,30*17, 30*18));
 				addEntity(new Coin (handler,30*18, 30*18));
 				addEntity(new Coin (handler,30*22, 30*18));
-				addEntity(new Coin (handler,30*26, 30*18));
+				addEntity(new Diamond(handler,30*26, 30*18));
 				addEntity(new Coin (handler,30*27, 30*18));
 				addEntity(new Coin (handler,30*28, 30*18));
 				

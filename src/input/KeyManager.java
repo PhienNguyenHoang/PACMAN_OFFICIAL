@@ -8,24 +8,24 @@ public class KeyManager implements KeyListener {
 	private boolean[] keys;
 	public boolean up, down, left, right,escape; 
 	
-	public boolean aup, adown, aleft, aright; 
+	//public boolean aup, adown, aleft, aright; 
 	
 	
 	public KeyManager() {
 		keys = new boolean[256];
 	}
 	public void tick() {
-		up = keys[KeyEvent.VK_W];
-		down = keys[KeyEvent.VK_S];
-		left = keys[KeyEvent.VK_A];
-		right = keys[KeyEvent.VK_D];
+		up = keys[KeyEvent.VK_UP];
+		down = keys[KeyEvent.VK_DOWN];
+		left = keys[KeyEvent.VK_LEFT];
+		right = keys[KeyEvent.VK_RIGHT];
 		
 		escape = keys[KeyEvent.VK_ESCAPE];
 		
-		aup = keys[KeyEvent.VK_UP];
-		adown = keys[KeyEvent.VK_DOWN];
-		aleft = keys[KeyEvent.VK_LEFT];
-		aright = keys[KeyEvent.VK_RIGHT];
+//		aup = keys[KeyEvent.VK_UP];
+//		adown = keys[KeyEvent.VK_DOWN];
+//		aleft = keys[KeyEvent.VK_LEFT];
+//		aright = keys[KeyEvent.VK_RIGHT];
 		
 		
 	}

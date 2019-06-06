@@ -50,8 +50,8 @@ public class Assets {
 		diamond=ImageLoader.loadImage("/Images/diamond.png");
 		//
 		button=new BufferedImage[2];
-		button[0] = ImageLoader.loadImage("/Images/button.png");
-		button[1] = ImageLoader.loadImage("/Images/button1.png");
+		button[0] = ImageLoader.loadImage("/Images/button1.png");
+		button[1] = ImageLoader.loadImage("/Images/button.png");
 		//
 		bg=ImageLoader.loadImage("/Images/ready.png");
 		
