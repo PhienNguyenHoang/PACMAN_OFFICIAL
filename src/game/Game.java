@@ -16,6 +16,7 @@ import Sound.Sound;
 import State.EndingState;
 import State.GameState; 
 import State.MainMenu;
+import State.Rule;
 import State.State;
 import State.WinnerState;
 
@@ -45,6 +46,7 @@ public class Game implements Runnable {
 	private State menuState;
 	private State winningState;
 	private State endingState; 
+	private State rule;
 	
 	
 	//Input
@@ -85,12 +87,16 @@ public class Game implements Runnable {
 		handler = new HandleClass(this);
 		
 		//setGameState(new GameState(handler));
+
 		gameState= new GameState(handler);
+		rule=new Rule(handler);
 		menuState= new MainMenu(handler);
+
 		State.setState(menuState);
 
 	
-		//score , lives and frighten
+//		score , lives and frighten
+		
 		score=0;
 		live=3;
 		frighten= false; 
@@ -249,6 +255,9 @@ public class Game implements Runnable {
 	
 	public State getEndingState() {
 		return endingState;
+	}
+	public State getRule() {
+		return rule;
 	}
 	
 	
