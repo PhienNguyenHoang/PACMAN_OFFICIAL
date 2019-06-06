@@ -1,13 +1,13 @@
 package Sound;
 
-import java.awt.image.BufferedImage;
+
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-import tiles.Tile;
+
 
 public class Sound {
 	private Clip clip;

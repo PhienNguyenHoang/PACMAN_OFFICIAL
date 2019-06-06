@@ -6,8 +6,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferStrategy;
+
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
@@ -15,14 +14,13 @@ import Graphics.Animation;
 import Graphics.Assets;
 import State.EndingState;
 import State.GameState;
-import State.MainMenu;
-import State.State;
+
 import State.WinnerState;
-import entitystatic.Coin;
+
 import entitystatic.Diamond;
-import game.Game;
+
 import game.HandleClass;
-import input.KeyManager;
+
 import sun.audio.AudioPlayer;
 import javax.swing.Timer; 
 
@@ -36,7 +34,7 @@ public class Player extends Creature {
 	
 	
 
-	private GameState gameState;
+	
 	public boolean up=true,down,right,left,die;
 	
 	private HashMap<String,AudioPlayer> sfx ;
@@ -121,7 +119,7 @@ public class Player extends Creature {
 	                
 	                	if(handler.getGame().getFrighten()==true) {
 	                		e.beEaten(3);
-	                		handler.getGame().setScore(200);
+	                		handler.getGame().setScore(100);
 	                		return;
 	                	}
 	                	else {
@@ -153,10 +151,12 @@ public class Player extends Creature {
             			return;
 	                	
                 	}
+	                else {
     
-	                e.beEaten(3);
-	                handler.getGame().setScore(10);
-		            return;
+	                	e.beEaten(3);
+	                	handler.getGame().setScore(10);
+	                	return;
+	                }
 	            }    
 	       }
 	        
@@ -247,7 +247,6 @@ public class Player extends Creature {
 	    }
 	    
 	   
-	
 
 	
 

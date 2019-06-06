@@ -3,17 +3,15 @@ package Graphics;
 import java.awt.image.BufferedImage;
 
 public class Assets {
-	private static final int width=75, height=75;
 	
 
-	
-	public static BufferedImage pacman,coin,diamond,background,wall,bg,gameover,test, winner, frighten ,rule;
+	public static BufferedImage coin,diamond,background,wall,bg,gameover, winner, frighten ;
 	public static BufferedImage[] pac_left,pac_right,blinky,pinky,inky,clyde,button;
 	
 	
 	public static void init() {
 		
-		//CropImage sheet=new CropImage(ImageLoader.loadImage("/Images/final.png"));
+		
 		//Tiles
 		background=ImageLoader.loadImage("/Images/black.png");
 		wall=ImageLoader.loadImage("/Images/wall.png");
@@ -59,7 +57,7 @@ public class Assets {
 		winner= ImageLoader.loadImage("/Images/youwin.png");
 		
 		frighten= ImageLoader.loadImage("/Images/frighten.png");
-		rule= ImageLoader.loadImage("/Images/RULES.png");
+		
 	}
 	
 	

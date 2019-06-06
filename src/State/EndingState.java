@@ -1,6 +1,5 @@
 package State;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import Graphics.Assets;
@@ -19,8 +18,7 @@ public class EndingState extends State{
 		handler.getMouseManager().setUiManager(uiManager);
 		
 		uiManager.addObject(new UIText((int)0,(int)0,900,600,Assets.gameover));
-		//handler.getGame().getG().setColor(Color.WHITE);
-		//handler.getGame().getG().drawString("YOUR SCORE" + handler.getGame().getScore(), 60,100 ); 
+		
 		uiManager.addObject(new UIImageButton(420,250,90,90,Assets.button,new ClickListener() {
 
 			@Override
@@ -29,7 +27,7 @@ public class EndingState extends State{
 				
 				handler.getMouseManager().setUiManager(null);
 				
-				handler.getGame().init();
+				handler.getGame().reinit();
 				
 				
 			}}));

@@ -2,23 +2,19 @@ package game;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import entity.Player;
 import input.KeyManager;
 import input.MouseManager;
 import Display.Display;
 import Graphics.Assets;
-import Graphics.CropImage;
-import Graphics.ImageLoader;
+
 import Sound.Sound;
-import State.EndingState;
+
 import State.GameState; 
 import State.MainMenu;
-import State.Rule;
+
 import State.State;
-import State.WinnerState;
+
 
 public class Game implements Runnable {
 	
@@ -44,9 +40,7 @@ public class Game implements Runnable {
 
 	private State gameState;
 	private State menuState;
-	private State winningState;
-	private State endingState; 
-	private State rule;
+	
 	
 	
 	//Input
@@ -89,8 +83,9 @@ public class Game implements Runnable {
 		//setGameState(new GameState(handler));
 
 		gameState= new GameState(handler);
-		rule=new Rule(handler);
+		
 		menuState= new MainMenu(handler);
+
 
 		State.setState(menuState);
 
@@ -249,17 +244,33 @@ public class Game implements Runnable {
 		return gameState;
 	}
 
-	public State getWinningState() {
-		return winningState;
-	}
-	
-	public State getEndingState() {
-		return endingState;
-	}
-	public State getRule() {
-		return rule;
-	}
 	
 	
+	public void reinit() {
+		
+		//handler = new HandleClass(this);
+//		
+//		//setGameState(new GameState(handler));
+//
+		gameState= new GameState(handler);
+//		
+		menuState= new MainMenu(handler);
+		
+//
+		State.setState(menuState);
+//
+//	
+////		score , lives and frighten
+//		
+		score=0;
+		live=3;
+		frighten= false; 
+//		
+//		
+		if(State.getState()== menuState) {
+		sound=new Sound("/Sound/pacman_beginning.wav");
+		sound.play();
+		}
 
+	}
 }
