@@ -33,7 +33,7 @@ public class Ghost3 extends Creature {
 		
 	}
 	
-	
+
 
 	@Override
 	public void tick() {

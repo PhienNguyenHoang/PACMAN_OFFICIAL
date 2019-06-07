@@ -29,20 +29,7 @@ public  abstract class Entity {
 		health= DEFAULT_HEALTH;
 	}
 	
-	
-	public boolean checkEntityCollisions( ) {
-		for ( Entity e : handler.getWorld().getEntityManager().getEntities()) {
-			
-			if ( e.equals(this)) {
-				continue; 
-			}
-			if( (e.getCollisionBounds()).intersects(getCollisionBounds())) {
-				return true; 
-			}
-		}
-		return false; 
-		
-	}
+
 	public Rectangle getCollisionBounds() {
 		return new Rectangle ((int)(x+bounds.x),(int)(y+bounds.y), bounds.width, bounds.height);
 	}

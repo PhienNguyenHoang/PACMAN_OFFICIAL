@@ -83,38 +83,17 @@ public class Player extends Creature {
 	
 	public void checkAttack() {
 	        
-	        Rectangle cb = getCollisionBounds();   
-	        Rectangle ar = new Rectangle();    
-	        int arSize =5;             
-	        ar.width = arSize;                          
-	        ar.height = arSize;     
-
-	        if (handler.getKeyManager().up) { 
-	        	ar.x = cb.x + cb.width/ 2 - arSize / 2; 
-        		ar.y = cb.y - arSize +10 ;      
-	        } else if (handler.getKeyManager().down) {            
-	            ar.x = cb.x + cb.width / 2 - arSize  / 2 +10;
-	            ar.y = cb.y + cb.height -10 ;
-	        } else if (handler.getKeyManager().left) {
-	            ar.x = cb.x - arSize+10; 
-	            ar.y = cb.y + cb.height / 2 - arSize / 2; 
-	        } else if (handler.getKeyManager().right) {
-	            ar.x = cb.x + cb.width ;
-	            ar.y = cb.y + cb.height / 2 - arSize / 2; 
-	        }
-	        else{
-	        	return;
+	        Rectangle cb = this.getCollisionBounds();   
 	           
-	        }
-	
 
-	        
 	        for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
 	        	//boolean frighten=true; 
 	            if (e.equals(this)) {
 	                continue;
 	            }
-	            if (e.getCollisionBounds().intersects(ar)) {
+	            
+	            if (e.getCollisionBounds().intersects(cb)) {
+	           
 	                if(e instanceof Ghost1 ||e instanceof Ghost2 || e instanceof Ghost3 || e instanceof Ghost4){
 	                
 	                	if(handler.getGame().getFrighten()==true) {
@@ -139,7 +118,7 @@ public class Player extends Creature {
 	                	e.beEaten(3);
 	                	handler.getGame().setScore(100);
 	                	handler.getGame().setFrighten(true);
-	                	Timer timer = new Timer(6000, new ActionListener() {
+	                	Timer timer = new Timer(3000, new ActionListener() {
 	                		  @Override
 	                		  public void actionPerformed(ActionEvent arg0) {
 	                			  handler.getGame().setFrighten(false);
