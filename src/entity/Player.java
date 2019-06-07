@@ -83,57 +83,57 @@ public class Player extends Creature {
 	
 	public void checkAttack() {
 	        
-	        Rectangle cb = this.getCollisionBounds();   
+	        Rectangle cb = this.getCollisionBounds();  //cb is the boundary box of the player 
 	           
 
 	        for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
 	        	//boolean frighten=true; 
-	            if (e.equals(this)) {
-	                continue;
+	            if (e.equals(this)) {  // if entity is the player
+	                continue; // skip and continue to another entity
 	            }
 	            
-	            if (e.getCollisionBounds().intersects(cb)) {
+	            if (e.getCollisionBounds().intersects(cb)) {  // check if the boundary box of being scanned entity intersects with the boundary box of the player
 	           
-	                if(e instanceof Ghost1 ||e instanceof Ghost2 || e instanceof Ghost3 || e instanceof Ghost4){
+	                if(e instanceof Ghost1 ||e instanceof Ghost2 || e instanceof Ghost3 || e instanceof Ghost4){ // if entity is one of the Ghosts
 	                
-	                	if(handler.getGame().getFrighten()==true) {
-	                		e.beEaten(3);
-	                		handler.getGame().setScore(100);
+	                	if(handler.getGame().getFrighten()==true) { // if the player has earned a diamond and still in the time of first 3 seconds
+	                		e.beEaten(1); // Ghost is eaten by player
+	                		handler.getGame().setScore(100); // Bonus 100 points 
 	                		return;
 	                	}
 	                	else {
-	                		this.beEaten(1); 
-	                		handler.getGame().setLives(1);
-	                		newPos();
+	                		this.beEaten(1); // if player has not collected a diamond or out of the time of the first 3 seconds after having it  
+	                		handler.getGame().setLives(1); // player live decreases by one
+	                		newPos(); // set new position for player
 	                		if(handler.getGame().getLives()==0) {                		
-	                			handler.getState().setState(new EndingState(handler));
+	                			handler.getState().setState(new EndingState(handler)); // if die == > GAME OVER 
 	                		}
 	                	}
 	               		return;
 	                   
 	                }
 	               	
-	                if(e instanceof Diamond) {
+	                if(e instanceof Diamond) { //if entity is a diamond
 	                	
-	                	e.beEaten(3);
-	                	handler.getGame().setScore(100);
-	                	handler.getGame().setFrighten(true);
-	                	Timer timer = new Timer(3000, new ActionListener() {
+	                	e.beEaten(1); // diamond is eaten 
+	                	handler.getGame().setScore(100); //bonus 100 points
+	                	handler.getGame().setFrighten(true); 
+	                	Timer timer = new Timer(3000, new ActionListener() { // use timer to set 3 seconds for eating back the Ghosts
 	                		  @Override
 	                		  public void actionPerformed(ActionEvent arg0) {
 	                			  handler.getGame().setFrighten(false);
 	                		  }
 	                		});
-	                		timer.setRepeats(false);
+	                		timer.setRepeats(false);// after 3 seconds, the ghosts back to initial state 
 	                		timer.start(); 
 	                	
             			return;
 	                	
                 	}
-	                else {
+	                else { //if entity is a coin
     
-	                	e.beEaten(3);
-	                	handler.getGame().setScore(10);
+	                	e.beEaten(3); // coin is eaten 
+	                	handler.getGame().setScore(10); //set 10 points 
 	                	return;
 	                }
 	            }    
@@ -141,11 +141,8 @@ public class Player extends Creature {
 	        
 	}
 	     
-	        
-	
-	                  
 	    
-	public void newPos() {
+	public void newPos() { // method new position called for after player loses one life
 		super.x=30*20;
 		super.y=30*9;
 		
@@ -168,7 +165,7 @@ public class Player extends Creature {
 //	       		handler.getState().setState(new WinnerState(handler));;
 //	        }
 		 
-		 if (handler.getGame().getScore()== 1500) {
+		 if (handler.getGame().getScore()>= 1500) {
 			 handler.getState().setState(new WinnerState(handler));
 		 }
 //	        
